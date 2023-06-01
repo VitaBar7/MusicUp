@@ -48,7 +48,7 @@ export const TrackInfo = () => {
                         {trackDetails?.name} 
                     </h2>
                     <p className= "m-0 mb-2 max-w-5xl text-md opacity-50">
-                        album: {trackDetails?.album.name} 
+                        album: {trackDetails?.album?.name} 
                     </p>
                     <a href={trackDetails?.artists[0].external_urls.spotify} target="_blank" rel="noopener noreferrer">
                         <p className= "m-0 mb-2 max-w-5xl text-xl font-semibold opacity-100 hover:italic">
