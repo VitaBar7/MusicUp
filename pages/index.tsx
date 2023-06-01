@@ -8,8 +8,8 @@ export default function Home() {
   return (
     <main className="flex min-h-screen bg-black flex-col items-center justify-between p-24">
       <div className="z-10 w-full max-w-5xl items-center justify-between font-sans text-lg sm:flex md:flex lg:flex">
-        <p className="fixed whitespace-pre-wrap flex left-0 top-0 w-full justify-center font-medium text-white text-3xl border-b border-gray-300 from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit md:text-white ">
-          Look up 
+        <p className="fixed whitespace-pre-wrap flex left-0 top-0 w-full justify-center font-medium text-white text-5xl tracking-wider border-b border-gray-300 from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit md:text-white ">
+          Look it up 
           <span className="flex text-xs font-light text-white">music app</span>
         </p>
         
