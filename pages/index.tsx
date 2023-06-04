@@ -12,7 +12,6 @@ export default function Home() {
           Look it up 
           <span className="flex text-xs font-light text-white">music app</span>
         </p>
-        
       </div>
       <SearchSong />
       <HomeCard />      
