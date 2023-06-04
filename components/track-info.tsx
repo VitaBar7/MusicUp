@@ -37,9 +37,9 @@ export const TrackInfo = () => {
     return (
         <>
             <div className="mt-6 mb-32 max-h-fit grid text-center lg:mb-0 lg:grid-cols-1 lg:text-left">
-                <div className="group rounded-sm border border-transparent mx-1 px-3 py-2 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30" key= {trackId}>
+                <div className="group rounded-sm border border-transparent mx-1 px-3 py-2 transition-colors hover:border-gray-300 hover:bg-gray-100" key= {trackId}>
                     <img
-                        className="rounded-sm relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
+                        className="rounded-sm relative dark:drop-shadow-[0_0_0.3rem_#ffffff70]"
                         src={trackDetails?.album?.images[0].url}
                         alt="album image"
                         
