@@ -99,24 +99,24 @@ export const SearchSong = () => {
                     return(
                         <>
                         <div className="flex flex-col text-white">
-                            <div className="max-w-sm pb-2 bg-white border border-black rounded-sm p-1 shadow dark:bg-gray-800 dark:border-gray-700 hover:border-pink-600" key={item.id}>
+                            <div className="max-w-sm pb-2 bg-white border border-black rounded-sm p-1 shadow hover:border-pink-600" key={item.id}>
                                 <Link 
                                 href={`http://localhost:3000/track-details?id=${item.id}`} onClick={()=> handleClick} >
                                     <img
-                                    className="relative rounded-md dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
+                                    className="relative rounded-md dark:drop-shadow-[0_0_0.3rem_#ffffff70]"
                                     src={item.album.images[0].url}
                                     alt="album image" 
                                     />
                                 <a href={`http://localhost:3000/track-details?id=${item.id}`}>
-                                    <h5 className="text-left text-sm text-gray-600 font-mono ml-1 mt-1 tracking-tight leading-5 dark:text-white">{item.name}</h5>
+                                    <h5 className="text-left text-sm text-gray-600 font-mono ml-1 mt-1 tracking-tight leading-5">{item.name}</h5>
                                 </a>
                                 </Link>
                             </div>
                             <div className="p-1 pt-2">
-                                <p className="text-left text-md hover:text-gray-400 dark:text-gray-400">
+                                <p className="text-left text-md hover:text-gray-400">
                                     {item.album.artists[0].name}
                                 </p>
-                                <p className="d tracking-tight font-mono  text-xs text-left dark:text-gray-400">
+                                <p className="d tracking-tight font-mono  text-xs text-left">
                                     <span className="font-normal"> album: </span>{item.album.name}
                                 </p>
                             </div>
@@ -134,10 +134,9 @@ export const SearchSong = () => {
                         <>
                         <div className="max-w-sm mb-2 bg- border border-black rounded-md p-1 shadow dark:bg-gray-800 dark:border-gray-700 hover:border-pink-600" key={artist.id}>
                             <div
-                                
                                 onClick={() => onArtistClick(artist.id)}>
                                 <img
-                                className="relative rounded-full dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
+                                className="relative cursor-pointer rounded-full dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
                                 src={artist?.images[0]?.url}
                                 alt="album image"
                                 />
@@ -151,7 +150,6 @@ export const SearchSong = () => {
                                         {artist.name}
                                     </p>
                                 </a> */}
-                            
                             </div>
                         </div>
                         </>
