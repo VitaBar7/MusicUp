@@ -19,15 +19,22 @@ export const TrackInfo = () => {
         if(id !== null){
             setTrackId(id)
         }
+        console.log("test")
         console.log(id)
     }, [userAccessToken])
 
+    //save last tracks > search: 
+    const saveSearch = () => {
+
+    }
     useEffect(() => {
     //if user is connected and trackId not empty we can get track details
         if (trackId !== "" && userAccessToken !== "" ) {
             getTrackDetails(userAccessToken, trackId)
             .then(response => setTrackDetails(response))
         }
+        //console.log(trackDetails)
+        console.log(trackDetails)
         }, [trackId, userAccessToken])
 
     useEffect(() => { 
@@ -37,7 +44,7 @@ export const TrackInfo = () => {
     return (
         <>
             <div className="mt-6 mb-32 max-h-fit grid text-center lg:mb-0 lg:grid-cols-1 lg:text-left">
-                <div className="group rounded-sm border border-transparent mx-1 px-3 py-2 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:text-black" key= {trackId}>
+                <div className="group rounded-sm border border-transparent mx-1 px-3 py-2 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:text-black">
                     <img
                         className="rounded-sm relative dark:drop-shadow-[0_0_0.3rem_#ffffff70]"
                         src={trackDetails?.album?.images[0].url}
