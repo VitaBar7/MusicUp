@@ -17,13 +17,14 @@ export const SearchSong = () => {
     const [albums, setAlbums] = useState<Album[]>([])
     const [artistId, setArtistId] = useState<string|null>("")
     const [searchDropdownValue, setDropdownValue] = useState<string>("song")
-    const [isHidden, setIsHidden] = useState<string>("hidden")
+    //const [isHidden, setIsHidden] = useState<string>("hidden")
     const router = useRouter()
 
-    const handleClick = () => {
+    const handleClick = (id: string) => {
         console.log("click")
-        router.push(`http://localhost:3001/track-details?id={id}`)}
-
+        router.push(`http://localhost:3000/track-details?id=${id}`)}
+        //save track here?
+        
    useEffect(() => {
     console.log(searchDropdownValue)
    }, [searchDropdownValue])
@@ -95,17 +96,16 @@ export const SearchSong = () => {
                     return(
                         <>
                         <div className="flex flex-col text-white">
-                            <div className="max-w-sm pb-2 bg-white border border-black rounded-sm p-1 shadow hover:border-pink-600" key={item.id}>
+                            <div className="max-w-sm pb-2 bg-white border border-black rounded-sm p-1 shadow hover:border-pink-600">
                                 <Link 
-                                href="http://localhost:3001/track-details?id=${item.id}" >
+                                href={`track-details?id=${item.id}`} onClick={() => handleClick(item.id)}>
                                     <img
                                     className="relative rounded-md dark:drop-shadow-[0_0_0.3rem_#ffffff70]"
                                     src={item.album.images[0].url}
                                     alt="album image" 
                                     />
-                                
                                     <h5 className="text-left text-sm text-gray-600 font-mono ml-1 mt-1 tracking-tight leading-5">{item.name}</h5>
-                                
+                                    
                                 </Link>
                             </div>
                             <div className="p-1 pt-2">
@@ -128,7 +128,7 @@ export const SearchSong = () => {
                 {artists?.map(artist => {
                     return(
                         <>
-                        <div className="max-w-sm mb-2 bg- border border-black rounded-md p-1 shadow hover:border-pink-600" key={artist.id}>
+                        <div className="max-w-sm mb-2 bg- border border-black rounded-md p-1 shadow hover:border-pink-600">
                             <div
                                 onClick={() => onArtistClick(artist.id)}>
                                 <img
@@ -165,7 +165,7 @@ export const SearchSong = () => {
                 albums?.map(album => {  
                 return(
                     <>
-                    <div className="max-w-sm mb-2 bg-white border border-black rounded-md p-1 shadow dark:border-gray-700 hover:border-pink-600" key={album.id}>
+                    <div className="max-w-sm mb-2 bg-white border border-black rounded-md p-1 shadow dark:border-gray-700 hover:border-pink-600">
                         <Link 
                         href={album.external_urls.spotify} onClick={()=>{}}
                         target='_blank'

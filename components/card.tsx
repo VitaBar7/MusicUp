@@ -1,6 +1,6 @@
 import { getTracks } from "@component/api/get-tracks"
 import { GetTracksResponse } from "@component/api/types"
-import { useState, useEffect, useContext } from "react"
+import { useState, useEffect, useContext, MouseEventHandler } from "react"
 import Link from 'next/link'
 import { useRouter } from "next/router"
 import { AuthContext } from "@component/context"
@@ -11,9 +11,9 @@ export const HomeCard = () => {
     const{ userAccessToken } = useContext(AuthContext) 
     const router = useRouter()
 
-    const handleClick = () => {
+    const handleClick = (id: string): void => {
         //console.log("click")
-      router.push(``)
+      router.push(`track-details?id=${id}`)
     }
     
     useEffect(() => {
@@ -35,19 +35,18 @@ export const HomeCard = () => {
                     <>
                     <div className="max-w-sm mb-2 bg-black text-white border border-black rounded-sm p-1 shadow hover:border-pink-600">
                         <Link 
-                        href={`http://localhost:3001/track-details?id=${item.id}`} onClick={()=>{}} >
+                        href={`track-details?id=${item.id}`} onClick={() => handleClick(item.id)} >
                             <img
                             className="relative rounded-md dark:drop-shadow-[0_0_0.3rem_#ffffff70]"
                             src={item.album.images[0].url}
                             alt="album image"
-                            key={item.id}
                             />
                         </Link>
                         <div className="p-3">
-                            <a href={`http://localhost:3001/track-details?id=${item.id}`}>
+                            <a href={`track-details?id=${item.id}`}>
                                 <h5 className="text-left text-2xl tracking-wider text-white">{item.name}</h5>
                             </a>
-                            <a href={`http://localhost:3000/track-details?id=${item.id}`}> 
+                            <a href={`track-details?id=${item.id}`}> 
                                 <p className="text-left text-xl text-gray-300">
                                     {item.album.artists[0].name}
                                 </p>
