@@ -1,12 +1,13 @@
-import  GetLastTracks from '@component/components/last-tracks'
-import getServerSideProps from '@component/components/last-tracks'
-import { supabase } from '@component/utils/supabaseClient';
+import  LastTracks from '@component/components/last-tracks'
+import  UpdateTracks from '@component/components/update-tracks'
 
 
 
-export default function LastTracks() {
+export default function tracksPage() {
     return ( 
-        <GetLastTracks/>
+        <>
+            <LastTracks/>
+        </>
     )
 }
 
