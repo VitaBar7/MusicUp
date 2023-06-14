@@ -1,12 +1,12 @@
 
 import { HomeCard } from '@component/components/card'
 import SearchSong from '@component/components/search-bar'
-
+import  LastTracks from '@component/components/last-tracks'
 
 export default function Home() {
   
   return (
-    <main className="flex min-h-screen bg-black flex-col items-center justify-between p-24">
+    <main className="flex min-h-screen bg-taupe flex-col items-center justify-between p-24">
       <div className="z-10 w-full max-w-5xl items-center justify-between font-sans text-lg sm:flex md:flex lg:flex">
         <p className="fixed whitespace-pre-wrap flex left-0 top-0 w-full justify-center font-medium text-white text-5xl tracking-wider border-b border-gray-300 from-zinc-200 pb-6 pt-8 backdrop-blur-2xl md:text-white ">
           Look it up 
@@ -14,7 +14,7 @@ export default function Home() {
         </p>
       </div>
       <SearchSong />
-      <HomeCard />      
+      <LastTracks/>     
       <div className="mt-6 mb-32 grid text-center lg:mb-0 lg:grid-cols-2 lg:text-left">
         <a
           href=""
@@ -29,7 +29,7 @@ export default function Home() {
             </span>
           </h2>
           <p className={`m-0 max-w-[30ch] text-xs italic text-white opacity-60`}>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+            This is a site about music. Look up a song or an artist you would like to listen to. See the lyrics, some info and enjoy!
           </p>
         </a>
       </div>

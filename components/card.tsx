@@ -4,6 +4,7 @@ import { useState, useEffect, useContext, MouseEventHandler } from "react"
 import Link from 'next/link'
 import { useRouter } from "next/router"
 import { AuthContext } from "@component/context"
+import  LastTracks from '@component/components/last-tracks'
 
 
 export const HomeCard = () => {
@@ -27,6 +28,7 @@ export const HomeCard = () => {
       
       return (
         <>
+        <LastTracks/>
         <h2 className={`self-start mt-10 tracking-wider text-2xl text-white`}>Last tracks </h2>
         <div className= "mt-6 mb-32 grid text-center sm:grid-cols-1 sm:gap-6 md:grid-cols-3 md:gap-6 lg:mb-0 lg:grid-cols-4 lg:gap-8 lg:text-left" >
         {

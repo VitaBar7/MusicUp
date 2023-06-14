@@ -5,25 +5,21 @@ import  { Database }  from '@component/lib/database.types'
 export default function Page ({ playlists }) {
   console.log({ playlists })
   return (
-    <div>
+    <div className="bg-black text-white">
       {playlists?.map((playlist) => (
         <div key={playlist.id}>
-          <img src={playlist.image} alt={`playlist ${playlist.id}`} style={{ width:"100", height:"100"}}/>
-          <p>
-          your playlist for today id: {playlist.spotify_id}, the mood is: {playlist.mood}
+          <img className="rounded-full" src={playlist.image} alt={`playlist ${playlist.id}`} style={{ width:"100", height:"100"}}/>
+          <p className='font-mono tracking-wide text-sm italic'>
+          playlist id: {playlist.spotify_id}, the mood is: {playlist.mood}
           </p>
         </div>
         
-        //console.log(country.name)
         ))}
     </div>
   );
 }
 
-/* const { error } = await supabase
-  .from('search')
-  .insert({ spotify_id: {trackId}})
- */
+
 
 export async function getServerSideProps() {
   let { data } = await supabase
