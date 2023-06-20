@@ -6,7 +6,7 @@ import  LastTracks from '@component/components/last-tracks'
 export default function Home() {
   
   return (
-    <main className="flex min-h-screen bg-taupe flex-col items-center justify-between p-24">
+    <main className="flex min-h-screen bg-semidark-green flex-col items-center justify-between p-24">
       <div className="z-10 w-full max-w-5xl items-center justify-between font-sans text-lg sm:flex md:flex lg:flex">
         <p className="fixed whitespace-pre-wrap flex left-0 top-0 w-full justify-center font-medium text-white text-5xl tracking-wider border-b border-gray-300 from-zinc-200 pb-6 pt-8 backdrop-blur-2xl md:text-white ">
           Look it up 
@@ -14,10 +14,13 @@ export default function Home() {
         </p>
       </div>
       <SearchSong />
+      <div className = "bg-album-playuing z-0 top-0" style={{backgroundImage: 'url("https://images.pexels.com/photos/145707/pexels-photo-145707.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")', backgroundAttachment: 'fixed', height:'480px'}}>
+      </div>
+     {/*  <img className = "bg-album-playing bg-fixed min-h-500" src="https://images.pexels.com/photos/145707/pexels-photo-145707.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" style={{maxHeight: '100vh'}}></img> */}
       <LastTracks/>     
       <div className="mt-6 mb-32 grid text-center lg:mb-0 lg:grid-cols-2 lg:text-left">
         <a
-          href=""
+          href="/about"
           className="group rounded-lg border border-transparent mx-1 px-5 py-4 transition-colors hover:border-gray-300 hover:bg-black hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
           target="_blank"
           rel="noopener noreferrer"
