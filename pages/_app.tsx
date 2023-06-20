@@ -1,9 +1,6 @@
 import { AuthProvider } from '@component/context'
 import '@component/styles/globals.css'
 import type { AppProps } from 'next/app'
-import { createPagesBrowserClient } from '@supabase/auth-helpers-nextjs'
-import { SessionContextProvider, Session } from '@supabase/auth-helpers-react'
-import { useState } from 'react'
 
 
 export default function App({ Component, pageProps }: AppProps) {

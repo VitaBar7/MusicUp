@@ -43,7 +43,7 @@ export type GetTrack = {
   name: string, 
   external_urls: {
     spotify: string
-  }
+  },
   artists: Artists[]
 }
 
@@ -55,5 +55,21 @@ export type Album = {
   release_date: string,
   external_urls: {
     spotify: string
+  }
+}
+
+export type Playlist = {
+  description:string, 
+  external_urls: {
+    spotify:string
+  },
+  id:string, 
+  images:Images[],
+  owner:{
+    external_urls: {
+      spotify: string
+    },
+    href:string,
+    display_name:string
   }
 }

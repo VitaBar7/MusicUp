@@ -2,7 +2,7 @@ import { getAlbums, getArtist } from "@component/api/get-artists"
 import { Album } from "@component/api/types"
 import { AuthContext } from "@component/context"
 import Link from "next/link"
-import { useContext, useEffect, useState } from "react"
+import { useContext, useState } from "react"
 
 
 export const Albums = () => {
