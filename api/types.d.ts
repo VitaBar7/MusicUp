@@ -73,3 +73,7 @@ export type Playlist = {
     display_name:string
   }
 }
+export type Mood = {
+  mood: string, 
+  spotify_id:string
+}

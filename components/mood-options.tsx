@@ -2,21 +2,24 @@ import { supabase } from '@component/utils/supabaseClient'
 import {useState, useEffect, useContext} from 'react'
 import { getPlaylist } from '@component/api/get-playlist'
 import { AuthContext } from '@component/context'
+import {Playlist, Mood} from '@component/api/types'
 
 
 
 export default function MoodOptions() {
-    const[moodList, setMoodList] = useState([])
-    const [playlist, setPlaylist] = useState(null)
+    const[moodList, setMoodList] = useState<Mood[]>([])
+    const [playlist, setPlaylist] = useState<Playlist>()
     const { userAccessToken } = useContext(AuthContext)
 
-   
+   useEffect(() => {
+    console.log(playlist)
+   }, [playlist])
 
     useEffect(() => {
         getMoodList().then((playlists)=> {
-            const temporaryMoodList = []
+            const temporaryMoodList:Mood[] = []
             
-            playlists.playlists.map((mood) => {
+            playlists.playlists?.map((mood:Mood) => {
                 console.log(mood)
                 temporaryMoodList.push(mood)
             })
@@ -26,20 +29,24 @@ export default function MoodOptions() {
     }, [])
 
   
-    const handleClick = (id) => {
+    const handleClick = (id:string) => {
         //console.log(id)
         if(id) {
             getPlaylist(userAccessToken, id)
-            .then(response => setPlaylist(response))
+            .then(response => {
+              setPlaylist(response)
+              console.log(response)
+            }
+            )
         }
-        console.log(playlist?.name)
+        
     }
 
   return (
     <>
     <main className="flex min-h-screen bg-dirty-white flex-col items-center justify-between p-24">
         <div className=" bg-dark-green rounded-md font-sans font-thin m-auto px-24 pb-16">
-            <h1 className="text-2xl italic font-medium text-dirty-white m-10">Pick your mood!</h1>
+            <h1 className="text-2xl italic font-light tracking-wide text-dirty-white m-10">Pick your mood!</h1>
             <ul className="text-dirty-white">
                 {moodList?.map((mood) => {
                     return (
