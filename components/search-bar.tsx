@@ -10,6 +10,7 @@ import Dropdown from './search-options'
 import { supabase } from '@component/utils/supabaseClient'
 
 
+
 export const SearchSong = () => {
     const [searchInput, setSearchInput] = useState("")
     const { userAccessToken } = useContext(AuthContext)
@@ -25,7 +26,7 @@ export const SearchSong = () => {
         await saveTracks(item)
         router.push(`http://localhost:3000/track-details?id=${item.id}`)}
         
- //save last tracks: 
+ //save last tracks in last_tracks table in db: 
  const saveTracks = async (item: Item) => {     
     const { error } = await supabase
         .from('last_tracks')
@@ -103,7 +104,7 @@ export const SearchSong = () => {
             <span className="inline-block mr-2 transition-transform group-hover:-translate-x-1 motion-reduce:transform-none">
             &lt;</span>{' '}Back to search
           </button> */}
-        <section className= "grid mb-10 text-center sm:grid-cols-2 sm:gap-6 md:grid-cols-3 md:gap-6 lg:mb-0 lg:grid-cols-4 xl:grid-col-6 lg:gap-8 lg:text-left" >
+        <section className= "grid mb-10 text-center sm:grid-cols-2 sm:gap-6 md:grid-cols-3 md:gap-6 lg:mb-0 lg:grid-cols-4 xl:grid-cols-6 2xl:grid-col-6 lg:gap-8 lg:text-left" >
             {tracks && (
                 tracks?.map(item => {
                     return(
