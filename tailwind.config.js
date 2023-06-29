@@ -23,9 +23,10 @@ module.exports = {
     colors: {
       'white':'#ffffff',
       'taupe': '#5E5252',
+      'grey':'#9EA1A2',
       'semidark-green': '#204d49d1',
       'dark-green':'#204d49fa',
-      'magenta':'#e803fc',
+      'deep-magenta':'#900253',
       'orange':'#FFA500',
       'light-pink':'#f4c2c2',
       'dirty-white':'#f5f7f6',
@@ -36,6 +37,7 @@ module.exports = {
       
       backgroundImage: {
         'album-playing' : "url('/pexels-anton-album.jpg')",
+        'close-icon' : "url('/icons8-effacer-24.png')"
         /* 'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))', */
