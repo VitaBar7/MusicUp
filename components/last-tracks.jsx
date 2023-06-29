@@ -13,12 +13,12 @@ export default function LastTracks () {
   console.log({ tracks })
   return (
     <>
-      <h2 className={`self-start z-10 sticky top-10 text-3xl mt-20 lg:text-3xl lg:mt-20 md:mt-10 ml-2 md:ml-0 md:top-20 sm:text-2xl xs:text-md xs:top-24 xs:-mt-40 xs:-ml-20 mb-6 tracking-wider text-white`}>Last tracks: </h2>
-      <div className="flex mb-15 mt-6 grid text-center sm:grid-cols-2 sm:gap-6 md:grid-cols-3 md:gap-6 lg:mb-0 lg:mt-10 lg:grid-cols-4 lg:gap-6 lg:text-left xl:grid-cols-6 xl:gap-8 ">
+      <h2 className={`self-start z-10 sticky top-[80px] xl:top-[80px] lg:top-[80px] text-3xl mt-64 lg:text-3xl lg:mt-20 md:self-start md:mt-10 ml-2 md:ml-0 md:top-[84px] sm:text-2xl sm:self-center sm:top-[84px] xs:text-md xs:top-[84px] xs:mt-32 xs:mb-6 xs:self-center xs:text-[1.4rem] tracking-wider text-white`}>Last tracks: </h2>
+      <div className="grid relative mb-15 text-center backdrop-blur-2xl xs:grid-cols-1 sm:grid-cols-3 sm:gap-6 md:grid-cols-4 md:gap-6 lg:mb-0 lg: lg:grid-cols-4 lg:gap-6 lg:text-left xl:grid-cols-6 xl:gap-8 ">
         {tracks?.map((item) => {
           return (
             <>
-            <div className=" bg-black text-white rounded-md p-1 pb-6 shadow hover:cursor:pointer hover:border hover:border-dark-grey hover:drop-shadow-xl">
+            <div className=" bg-black text-white rounded-md backdrop-blur-2xl p-1 pb-1 shadow hover:cursor:pointer hover:border hover:border-taupe hover:drop-shadow-xl">
               <Link 
                   href={`track-details?id=${item.spotify_id}`} onClick={() => {}} >
                   <img
@@ -26,11 +26,9 @@ export default function LastTracks () {
                   src={item.image}
                   alt="album image"
                   />
-                <p className="text-xs text-center text-thin tracking-wide mb4 mt-2 sm:text-center" key={item.id}>{item.title}
+                <p className="text-xs text-center text-thin tracking-wide mt-2 sm:text-center" key={item.id}>{item.title}
                  {/* <span className="not-italic">by {item.artist_name}</span> */}</p>
               </Link>
-              
-
             </div>
             </>
           //console.log(item.title)
@@ -57,11 +55,6 @@ export async function getServerSideProps() {
 
 
 
-
-/* export async function getMovies() {
-  return await supabase.from('movies').select(`id, title`)
-}
- */
 
 /* type TracksResponse = Awaited<ReturnType<typeof getLastTracks>>
 export type TracksResponseSuccess = TracksResponse['data']
