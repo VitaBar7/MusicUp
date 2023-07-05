@@ -13,12 +13,12 @@ export default function LastTracks () {
   console.log({ tracks })
   return (
     <>
-      <h2 className={`self-start z-10 sticky top-[80px] xl:top-[80px] lg:top-[80px] text-3xl mt-64 lg:text-3xl lg:mt-20 md:self-start md:mt-10 ml-2 md:ml-0 md:top-[84px] sm:text-2xl sm:self-center sm:top-[84px] xs:text-md xs:top-[84px] xs:mt-32 xs:mb-6 xs:self-center xs:text-[1.4rem] tracking-wider text-white`}>Last tracks: </h2>
-      <div className="grid relative mb-15 text-center backdrop-blur-2xl xs:grid-cols-1 sm:grid-cols-3 sm:gap-6 md:grid-cols-4 md:gap-6 lg:mb-0 lg: lg:grid-cols-4 lg:gap-6 lg:text-left xl:grid-cols-6 xl:gap-8 ">
+      <h2 className={`self-start z-10 sticky top-[80px] xl:top-[80px] lg:top-[80px] text-3xl mt-64 lg:text-3xl lg:mt-20 md:self-start md:mt-10 ml-2 md:ml-0 md:top-[84px] sm:text-2xl sm:self-center sm:top-[84px] xs:text-md xs:top-[58px] xs:mt-28 xs:mb-6 xs:self-start xs:text-[1.3rem] tracking-wider text-white`}>Last tracks: </h2>
+      <div className="grid relative mb-15 text-center backdrop-blur-2xl xs:grid-cols-1 sm:grid-cols-3 sm:gap-6 md:grid-cols-4 md:gap-6 lg:mb-0 lg: lg:grid-cols-4 lg:gap-6 lg:text-left xl:grid-cols-6 xl:gap-8 xs:max-sm:gap-3 xs:max-sm:mx-10">
         {tracks?.map((item) => {
           return (
             <>
-            <div className=" bg-black text-white rounded-md backdrop-blur-2xl p-1 pb-1 shadow hover:cursor:pointer hover:border hover:border-taupe hover:drop-shadow-xl">
+            <div className="text-white rounded-md backdrop-blur-2xl p-1 pb-1 shadow hover:cursor:pointer hover:border hover:border-taupe hover:drop-shadow-xl">
               <Link 
                   href={`track-details?id=${item.spotify_id}`} onClick={() => {}} >
                   <img
