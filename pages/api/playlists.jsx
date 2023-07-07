@@ -19,13 +19,7 @@ async function updateImage() {
   }
 }
 
-updateImage();
+//updateImage();
 
-
-/* const { data, error } = await supabase
-  .from('playlists')
-  .update({ other_column: 'otherValue' })
-  .eq('some_column', 'someValue')
- */
 
   

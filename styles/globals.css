@@ -33,7 +33,7 @@ a:hover {
 
 :root {
   --foreground-rgb: 255, 255, 255; 
-  --background-start-rgb: 158, 161, 162;
+  --background-start-rgb: 85, 85, 85, 0.5;
   --background-end-rgb: 0, 0, 0;
   ---background-image: url("https://images.pexels.com/photos/145707/pexels-photo-145707.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")
 }
