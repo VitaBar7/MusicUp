@@ -54,7 +54,7 @@ export default function MoodOptions() {
 
   return (
     <>
-      {!showModal ? (<button id="sticky" className="z-40 fixed top-40 whitespace-pre-line bg-orange/80 text-white rounded-full h-28 w-28 p-4 self-end xs:max-sm:top-20 xs:max-sm:h-24 xs:max-sm:w-24 xs:max-sm:text-sm hover:cursor-pointer shadow hover:opacity-75 transition"  onClick={() => setShowModal(true)}>
+      {!showModal ? (<button id="sticky" className="z-40 fixed top-40 shadow whitespace-pre-line bg-orange/90 text-white rounded-full h-28 w-28 mr-10 p-4 self-end xs:max-sm:top-24 xs:max-sm:h-24 xs:max-sm:w-24 xs:max-sm:text-sm xs:max-sm:mr-2 hover:cursor-pointer hover:bg-orange/100 hover:animate-liquid hover:shadow-xl"  onClick={() => setShowModal(true)}>
         How is <br></br>your mood?
       </button>): null}
       <div className="flex z-80 md:flex-col justify-center items-center px-24 sticky top-28 sm:mt-1 sm:w-full sm:px-2 xs:max-sm:top-16 xs:max-sm:mt-3 xs:max-sm:px-2">
@@ -76,10 +76,10 @@ export default function MoodOptions() {
             <button className="bg-close-icon bg-white bg-center bg-invert text-white rounded-full w-10 h-10 bg-no-repeat m-auto my-2 hover:border hover:border-dark-grey hover:rotate-45" onClick={() => setShowModal(false)}></button>
             <p className="text-xs mb-5 font-light italic text-center tracking-wide">no playlist for me today, thanks</p>
           </div>
-           
         </div>
         ): null}
     </div>
+     { playlist ? (<div></div>): null}
     </>
   );
  

@@ -92,7 +92,6 @@ export const TrackInfo = () => {
 
     return (
         <>
-       
             <div className="mb-12 max-h-fit grid text-center lg:mb-0 lg:grid-cols-2 md:grid-cols-2 xs:gap-y-4 lg:text-left xs:grid-cols-1">
                 <div className="grid rounded-md border-transparent grid-cols-1 mx-1 p-1 transition-colors hover:border-gray-300 bg-dirty-white text-dark-grey">
                     <img
@@ -118,9 +117,9 @@ export const TrackInfo = () => {
                         <svg aria-hidden="true" className="w-4 h-4 ml-2 mr-1 inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
                     </button>
                 </div>
-                <div className="grid rounded-md border-transparent grid-cols-1 mx-1 p-1 transition-colors hover:border-gray-300 bg-dirty-white text-dark-grey">
-                    <h3>Song's lyrics will be here...</h3>
-                    <p className="text-xs overflow-y-auto">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint ullam excepturi earum consequuntur repellat neque veniam distinctio, reprehenderit iure incidunt quam doloribus eligendi laudantium quibusdam mollitia? Id ab labore maiores.</p>
+                <div className="grid rounded-md border-transparent grid-cols-1 mx-1 p-6 transition-colors hover:border-gray-300 bg-dirty-white text-dark-grey">
+                    <h3 className="text-center">Song's lyrics will be here...</h3>
+                    <p className="text-xs text-center overflow-y-auto">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint ullam excepturi earum consequuntur repellat neque veniam distinctio, reprehenderit iure incidunt quam doloribus eligendi laudantium quibusdam mollitia? Id ab labore maiores.</p>
                 </div>
             </div>
 
