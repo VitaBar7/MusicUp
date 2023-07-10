@@ -6,7 +6,7 @@ export const playTrack = async (device_id:string, track_id:string, bearerToken:s
     let options = {
         method: 'PUT',
         headers: {
-            'Authorization': 'Bearer BQCC8DJtXJf0cxmkUnTzmybHGKbdRU_bcc13EdM3HAd9Z2GWUiIrb8hLbRgTV_HLZz1bMrPa0xKzPXv_hfwVlDXMj_a1mi2AtlE2tMZmXdwTKvEguUBnBTMarBGZynk2Py_Dq6hgpNbNG716VC9LnQ3PLB5qFhCjYvq9GporiFLBz8JlJXFqa2y6TcjGDgY9KYhlwhEb-yykXjRd4TKpRcVlmbHWlqqF3zRPx2WbI7rOu4hhmQYEPYkPaeVXYwWj-IU9VhdCr723PI-Z78gMEGnGS2ovFL8tSIDe2uv6aU8npuDB2jSOtY7RvESvqFEM47E2s4GNzQEzFlPXwPjpSoSvFEODu9rI',
+            'Authorization': `Bearer ${bearerToken}`,
             'content-type': 'application/json'
         },
         //data: { 'uris': [`${track_id}`] }
