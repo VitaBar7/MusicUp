@@ -4,7 +4,7 @@ import { AuthContext } from "@component/context"
 export const SpotifyLoginButton:React.FC = () => {
     const{ logout, isUserAuthenticated } = useContext(AuthContext)
 
-    const CLIENT_ID = "0842598d467b475fb571ba374f1f94af"
+    const CLIENT_ID = "0e7d7413b7494383814e036c1d527467"
     const REDIRECT_URI = "http://localhost:3000"
     const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize"
     const RESPONSE_TYPE = "token"
