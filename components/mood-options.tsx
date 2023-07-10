@@ -3,10 +3,13 @@ import {useState, useEffect, useContext} from 'react'
 import { getPlaylist } from '@component/api/get-playlist'
 import { AuthContext } from '@component/context'
 import {Playlist, Mood} from '@component/api/types'
+import {WebPlayBackContext} from "@component/context/webPlayBackContext";
+import {playPlayList} from "@component/api/player";
 
 
 
 export default function MoodOptions() {
+    const { deviceId } = useContext(WebPlayBackContext)
     const[moodList, setMoodList] = useState<Mood[]>([])
     const [playlist, setPlaylist] = useState<Playlist>()
     const { userAccessToken } = useContext(AuthContext)
@@ -19,25 +22,25 @@ export default function MoodOptions() {
     useEffect(() => {
         getMoodList().then((playlists)=> {
             const temporaryMoodList:Mood[] = []
-            
+
             playlists.playlists?.map((mood:Mood) => {
                 //console.log(mood)
                 temporaryMoodList.push(mood)
             })
-            setMoodList(temporaryMoodList)    
-    }) 
+            setMoodList(temporaryMoodList)
+    })
     }, [])
 
     const handleClick = (id:string) => {
         //console.log(id)
         if(id) {
             getPlaylist(userAccessToken, id)
-            .then(response => {
-              setPlaylist(response)
-              console.log(response)
-            }
+            .then(async response => {
+                    setPlaylist(response)
+                    await playPlayList(response.id, deviceId, userAccessToken)
+                }
             )
-        }  
+        }
     }
 
    /*  const handleMouseEvent = (e:MouseEvent) => {
@@ -59,13 +62,13 @@ export default function MoodOptions() {
       </button>): null}
       <div className="flex z-80 md:flex-col justify-center items-center px-24 sticky top-28 sm:mt-1 sm:w-full sm:px-2 xs:max-sm:top-16 xs:max-sm:mt-3 xs:max-sm:px-2">
        {showModal ? (<div className="bg-dark-grey/90 mt-10 sm:mt-2 xs:mt-1 text-thin rounded-md m-auto ">
-          <h1 className="text-2xl font-sans tracking-wide italic font-thin text-white whitespace-pre-line m-10 mt-12 sm:max-md:text-xl xs:max-sm:text-lg xs:max-sm:font-thin xs:max-sm:m-6">Pick your mood to get the right playlist!</h1> 
+          <h1 className="text-2xl font-sans tracking-wide italic font-thin text-white whitespace-pre-line m-10 mt-12 sm:max-md:text-xl xs:max-sm:text-lg xs:max-sm:font-thin xs:max-sm:m-6">Pick your mood to get the right playlist!</h1>
           <div className="flex flex-col space-between">
             <ul className="text-dark-grey bg-white backdrop-blur-2xl xs:px-10 pt-5 pb-6 hover:">
                 {moodList?.map((mood) => {
                     return (
                         <>
-                        <div className="flex">   
+                        <div className="flex">
                             <li className="self-start mb-3 font-thin xs:text-md"><button className="border border-dark-grey me-auto text-dirty-white bg-dark-grey rounded-full mr-2 px-2 mb-3 hover:bg-dark-grey hover:text-dirty-white  hover:font-semibold hover:px-3" onClick= {() =>{handleClick(mood.spotify_id)}}>&gt;</button> {mood.mood}
                             </li>
                         </div>
@@ -84,7 +87,7 @@ export default function MoodOptions() {
      </div>): null}
     </>
   );
- 
+
 }
 
 export async function getMoodList() {
