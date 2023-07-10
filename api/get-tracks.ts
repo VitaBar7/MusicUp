@@ -1,6 +1,6 @@
 
 import { GetTrack, GetTracksResponse } from './types'
-import request from './utils'
+import { request }  from './utils'
 
 export const getTracks = async (userAccessToken:string, q:string):Promise<GetTracksResponse> => {
     return request('https://api.spotify.com/v1/search', {q:q, type: 'track', market: 'FR', limit: 36 }, userAccessToken)
