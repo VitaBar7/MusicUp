@@ -69,7 +69,10 @@ export default function MoodOptions() {
                     return (
                         <>
                         <div className="flex">
-                            <li className="self-start mb-3 font-thin xs:text-md"><button className="border border-dark-grey me-auto text-dirty-white bg-dark-grey rounded-full mr-2 px-2 mb-3 hover:bg-dark-grey hover:text-dirty-white  hover:font-semibold hover:px-3" onClick= {() =>{handleClick(mood.spotify_id)}}>&gt;</button> {mood.mood}
+                            <li className="self-start mb-3 font-thin xs:text-md"><button className="border border-dark-grey me-auto text-dirty-white bg-dark-grey rounded-full mr-2 px-2 mb-3 hover:bg-dark-grey hover:text-dirty-white  hover:font-semibold hover:px-3" onClick= {() =>{
+                              handleClick(mood.spotify_id)
+                              setShowModal(false)
+                              }}>&gt;</button> {mood.mood}
                             </li>
                         </div>
                         </>
