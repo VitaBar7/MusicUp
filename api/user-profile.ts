@@ -1,7 +1,8 @@
+import { GetUserInfoResponse } from './types'
 import { request }  from './utils'
 
-export const getUserDisplayName = async (userAccessToken:string):Promise<string> => {
+export const getUserInfo = async (userAccessToken:string):Promise<GetUserInfoResponse> => {
     return request('https://api.spotify.com/v1/me', {}, userAccessToken)
-        .then(response => response.display_name)
+        .then(response => response)
         .catch(_ => "")
 }

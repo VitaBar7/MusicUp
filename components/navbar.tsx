@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import SpotifyLoginButton from "@component/components/spotify-login-button";
 import React, {useContext, useEffect, useState} from "react";
-import {getUserDisplayName} from "@component/api/user-profile";
+import {getUserInfo} from "@component/api/user-profile";
 import {AuthContext} from "@component/context";
 
 
@@ -11,8 +11,8 @@ export default function Navbar() {
 
     useEffect(() => {
         if(isUserAuthenticated) {
-            getUserDisplayName(userAccessToken)
-                .then(response => setUserDisplayName(response))
+            getUserInfo(userAccessToken)
+                .then(response => setUserDisplayName(response.display_name))
         }
     }, [isUserAuthenticated])
 
@@ -29,7 +29,7 @@ export default function Navbar() {
                     <Link href="/blog"><li>Blog</li></Link>
                 </ul> 
                 <ul className="flex flex-row justify-around xs:max-sm:mr-3"> 
-                    {isUserAuthenticated && <li className="font-thin">Hello <span className="font-light">{userDisplayName}</span></li>}
+                    {isUserAuthenticated && <li className="font-thin mt-1"> <span className="font-light">{userDisplayName}</span></li>}
                     <li className="flex-end"><SpotifyLoginButton></SpotifyLoginButton></li>
                 </ul>
 

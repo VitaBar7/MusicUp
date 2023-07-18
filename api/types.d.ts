@@ -7,6 +7,13 @@ export type GetTracksResponse = {
     }
 }
 
+export type GetUserInfoResponse = {
+  id: string, 
+  display_name:string,
+  email: string
+
+} 
+
 export type Item = 
 {
     album: {
@@ -61,6 +68,7 @@ export type Album = {
 
 export type Playlist = {
   description:string, 
+  name: string,
   external_urls: {
     spotify:string
   },
@@ -73,7 +81,12 @@ export type Playlist = {
     href:string,
     display_name:string
   }
+  tracks:{
+    total: integer, 
+    items:Item[]
+  }
 }
+
 export type Mood = {
   mood: string, 
   spotify_id:string
