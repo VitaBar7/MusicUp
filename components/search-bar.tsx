@@ -8,40 +8,58 @@ import { getAlbums, getArtist } from '@component/api/get-artists'
 import { Album, Artists, Item } from "@component/api/types"
 import Dropdown from './search-options'
 import { supabase } from '@component/utils/supabaseClient'
+import { getUserInfo } from '@component/api/user-profile'
 
 
 
 export const SearchSong = () => {
     const [searchInput, setSearchInput] = useState("")
-    const { userAccessToken } = useContext(AuthContext)
+    const { userAccessToken, isUserAuthenticated } = useContext(AuthContext)
     const [tracks, setTracks] = useState<Item[]|undefined>(undefined)
     const [artists, setArtists] = useState<Artists[]>([])
     const [albums, setAlbums] = useState<Album[]>([])
     const [artistId, setArtistId] = useState<string|null>("")
     const [searchDropdownValue, setDropdownValue] = useState<string>("song")
+    const [userId, setUserId] = useState<string>("")
     const router = useRouter()
 
-    const handleClick = async (item:Item) => {
-        console.log("click")
-        await saveTracks(item)
-        router.push(`http://localhost:3000/track-details?id=${item.id}`)}
-        
- //save last tracks in last_tracks table in db: 
- const saveTracks = async (item: Item) => {     
-    const { error } = await supabase
+    
+    useEffect(() => {
+        if(isUserAuthenticated) {
+            getUserInfo(userAccessToken)
+            .then(response => setUserId(response.id))
+        }
+    }, [isUserAuthenticated])
+    
+    //save last tracks in last_tracks table in db: 
+    const saveTracks = async (item: Item, userId:string) => {     
+        const { error } = await supabase
         .from('last_tracks')
         .insert({ 
             spotify_id: item.id, 
             title: item.name, 
             artist_name: item.album.artists[0].name, 
-            image: item.album.images[1].url
-        })
-        .limit(24)
-   
-}
-   useEffect(() => {
-    console.log(searchDropdownValue)
-   }, [searchDropdownValue])
+            image: item.album.images[1].url,
+            user_id: userId
+        })   
+    }
+
+    const saveUser = async (userId: string) => {
+        const { error } = await supabase
+        .from('user')
+        .insert({ 
+            spotify_id: userId
+        })   
+
+    }
+
+
+    const handleClick = async (item:Item) => {
+        if(isUserAuthenticated) {
+        await saveTracks(item, userId)
+        saveUser(userId)}
+        router.push(`http://localhost:3000/track-details?id=${item.id}`)}
+
 
    useEffect(() => {
     console.log(artistId)
@@ -72,13 +90,12 @@ export const SearchSong = () => {
         }   
     }
 
-   /*  const handleVisibility = () => {
-    } */
+   
 
     
     return (
         <>
-        <div className="flex flex-row relative top-2 z-12 w-full max-w-5xl font-sans text-lg sm:flex lg:flex xs:max-sm:flex-col">
+        <div className="flex flex-row mb-6 relative top-2 z-12 w-full max-w-5xl font-sans text-lg sm:flex lg:flex xs:max-sm:flex-col">
             <Dropdown onChange={setDropdownValue}/>
             <div className="mt-1.5 xs:max-sm:mt-0">
                 <input
@@ -168,7 +185,7 @@ export const SearchSong = () => {
                 }   
         </div>
         }
-        { <div className= "grid text-center sm:grid-cols-2 sm:gap-6 md:grid-cols-3 md:gap-6 lg:mb-0 lg:grid-cols-4 lg:gap-8 lg:text-left" >
+        { <div className= "grid text-center sm:grid-cols-2 backdrop-blur-2xl sm:gap-6 md:grid-cols-3 md:gap-6 lg:mb-0 lg:grid-cols-4 lg:gap-8 lg:text-left" >
 
             {albums && 
             <button 
