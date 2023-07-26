@@ -1,10 +1,12 @@
 import { supabase } from '@component/utils/supabaseClient'
-import {useState, useEffect, useContext} from 'react'
+import {useState, useEffect, useContext, Fragment} from 'react'
+import { Dialog, Transition } from '@headlessui/react'
 import { getPlaylist } from '@component/api/get-playlist'
 import { AuthContext } from '@component/context'
 import {Playlist, Mood} from '@component/api/types'
 import {WebPlayBackContext} from "@component/context/webPlayBackContext";
 import {playPlayList} from "@component/api/player";
+
 
 
 
@@ -46,13 +48,15 @@ export default function MoodOptions() {
 
   return (
     <>
-      {!showModal ? ({/* <div className="z-50 fixed top-30 shadow animate-ping backdrop-blur-2xl bg-orange/50 rounded-full h-28 w-28 mr-10 p-4 self-end xs:max-sm:top-24 xs:max-sm:h-24 xs:max-sm:w-24 xs:max-sm:text-sm xs:max-sm:mr-2 hover:cursor-pointer hover:bg-orange/90 hover:shadow-xl"></div> */}&&<button id="sticky" className="z-40 fixed top-40 shadow whitespace-pre-line bg-orange/100 text-white rounded-full h-28 w-28 mr-10 p-4 self-end xs:max-sm:top-24 xs:max-sm:h-24 xs:max-sm:w-24 xs:max-sm:text-sm xs:max-sm:mr-2 hover:cursor-pointer hover:bg-orange/90 hover:shadow-xl"  onClick={() => setShowModal(true)}>
+      {!showModal ? ({/* <div className="z-50 fixed top-30 shadow animate-ping backdrop-blur-2xl bg-orange/50 rounded-full h-28 w-28 mr-10 p-4 self-end xs:max-sm:top-24 xs:max-sm:h-24 xs:max-sm:w-24 xs:max-sm:text-sm xs:max-sm:mr-2 hover:cursor-pointer hover:bg-orange/90 hover:shadow-xl"></div> */} 
+      &&
+      <button id="sticky" className="z-40 fixed top-40 shadow whitespace-pre-line bg-orange/100 text-white rounded-full h-28 w-28 mr-10 p-4 self-end xs:max-sm:top-24 xs:max-sm:h-24 xs:max-sm:w-24 xs:max-sm:text-sm xs:max-sm:mr-2 hover:cursor-pointer hover:bg-orange/90 hover:shadow-xl"  onClick={() => setShowModal(true)}>
         How is <br></br>your mood?
       </button>
       ): null}
       <div className="flex z-80 md:flex-col justify-center items-center px-24 sticky top-28 sm:mt-1 sm:w-full sm:px-2 xs:max-sm:top-16 xs:max-sm:-mt-11 xs:max-sm:px-2">
-       {showModal ? (<div className="bg-dark-grey/90 mt-10 sm:mt-2 xs:mt-1 text-thin rounded-md m-auto ">
-          <h1 className="text-2xl font-sans tracking-wide italic font-thin text-white whitespace-pre-line m-10 mt-12 sm:max-md:text-xl xs:max-sm:text-lg xs:max-sm:font-thin xs:max-sm:m-6">Pick your mood to get the right playlist!</h1>
+       {showModal ? (<div className="bg-white mt-10 sm:mt-2 xs:mt-1 text-thin rounded-md m-auto ">
+          <h1 className="text-2xl font-sans tracking-wide italic font-thin text-dark-grey whitespace-pre-line m-10 mt-12 sm:max-md:text-xl xs:max-sm:text-lg xs:max-sm:font-thin xs:max-sm:m-6">Pick your mood to get the right playlist!</h1>
           <div className="flex flex-col space-between">
             <ul className="text-dark-grey bg-white backdrop-blur-2xl xs:px-10 pt-5 pb-6 hover:">
                 {moodList?.map((mood) => {
@@ -70,7 +74,7 @@ export default function MoodOptions() {
                 )}
             </ul>
             <button className="bg-close-icon bg-white bg-center bg-invert text-white rounded-full w-10 h-10 bg-no-repeat m-auto my-2 hover:border hover:border-dark-grey hover:rotate-45" onClick={() => setShowModal(false)}></button>
-            <p className="text-xs mb-5 font-light italic text-center tracking-wide">no playlist for me today, thanks</p>
+            <p className="text-xs text-dark-grey mb-5 font-light italic text-center tracking-wide">no playlist for me today, thanks</p>
           </div>
         </div>
         ): null}

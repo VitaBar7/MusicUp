@@ -1,4 +1,4 @@
-import { getTracks } from "@component/api/get-tracks"
+/* import { getTracks } from "@component/api/get-tracks"
 import { GetTracksResponse } from "@component/api/types"
 import { useState, useEffect, useContext, MouseEventHandler } from "react"
 import Link from 'next/link'
@@ -56,9 +56,7 @@ export const HomeCard = () => {
                             <p className="font-normal text-sm text-left text-gray-400">
                                 album: {item.album.name}
                             </p>
-                            {/* <p className="mb-3 font-normal text-xs text-left text-gray-400">
-                                {item.id}
-                            </p> */}
+                            
                         </div>
                 </div>
                 </>
@@ -74,4 +72,4 @@ export const HomeCard = () => {
   
   }
 
-  export default HomeCard
+  export default HomeCard */
