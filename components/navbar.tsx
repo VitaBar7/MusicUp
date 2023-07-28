@@ -3,6 +3,8 @@ import SpotifyLoginButton from "@component/components/spotify-login-button";
 import React, {useContext, useEffect, useState} from "react";
 import {getUserInfo} from "@component/api/user-profile";
 import {AuthContext} from "@component/context";
+import Image from 'next/image'
+import { GetUserInfoResponse } from '@component/api/types';
 
 
 export default function Navbar() {
@@ -27,6 +29,7 @@ export default function Navbar() {
                     <Link href='/'><li className=" text-white hover:text-dirty-white">Home</li></Link>
                     <Link href='/about'><li>About</li></Link>
                     <Link href="/blog"><li>Blog</li></Link>
+                    <Link className="mt-1 hover:scale-110" href='/favorites'><li><img src="/icons8-heart-filled-24.png"></img></li></Link>
                 </ul> 
                 <ul className="flex flex-row justify-around xs:max-sm:mr-3"> 
                     {isUserAuthenticated && <li className="font-thin mt-1"> <span className="font-light">{userDisplayName}</span></li>}
