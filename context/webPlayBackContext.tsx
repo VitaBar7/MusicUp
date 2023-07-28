@@ -1,12 +1,24 @@
 import {createContext, useState, useEffect, PropsWithChildren, useContext} from 'react'
 import { AuthContext } from "@component/context"
+import { Images, Artists } from "@component/api/types"
 
 export type webPlayBackContextType = {
-    player?: object,
+    player?:{
+        addListener: ()=>void,
+        previousTrack: ()=>void,
+        togglePlay: ()=>void,
+        nextTrack: ()=>void
+    }
     deviceId: string,
     is_paused: boolean,
     is_active: boolean,
-    current_track?: object
+    current_track?: {
+        album:{
+            images:Images[]
+        },
+        name:string,
+        artists:Artists[]
+    }
 }
 
 export const WebPlayBackContext = createContext<webPlayBackContextType>({
@@ -38,22 +50,23 @@ export const WebPlayBackProvider = ({children}: PropsWithChildren) => {
                 //@ts-ignore
                 const player = new window.Spotify.Player({
                     name: 'Web Playback SDK',
+                    //@ts-ignore
                     getOAuthToken: cb => { cb(userAccessToken); },
                     volume: 0.2
                 });
 
                 setPlayer(player);
 
-
+                //@ts-ignore
                 player.addListener('ready', ({ device_id }) => {
                     console.log('Ready with Device ID', device_id);
                     setDeviceId(device_id);
                 });
-
+                //@ts-ignore
                 player.addListener('not_ready', ({ device_id }) => {
                     console.log('Device ID has gone offline', device_id);
                 });
-
+                //@ts-ignore
                 player.addListener('player_state_changed', ( state => {
 
                     if (!state) {
@@ -63,7 +76,7 @@ export const WebPlayBackProvider = ({children}: PropsWithChildren) => {
                     setTrack(state.track_window.current_track);
                     setPaused(state.paused);
 
-
+                    //@ts-ignore
                     player.getCurrentState().then( state => {
                         (!state)? setActive(false) : setActive(true)
                     });
