@@ -10,5 +10,10 @@ export const AlbumInfo = () => {
     const [albumInfo, setAlbumInfo] = useState(undefined)
 
 
+    
+    return (
+        <>
+        </>
+    )
 
 }
