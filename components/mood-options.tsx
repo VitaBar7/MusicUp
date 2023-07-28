@@ -55,7 +55,7 @@ export default function MoodOptions() {
       ): null}
       {showModal ? (
       <>
-      <div className="flex z-100 fixed bg-dark-grey w-screen h-screen opacity-90 md:flex-col justify-center items-center px-24 top-24 sm:mt-1 sm:w-full sm:px-2 xs:max-sm:top-16 xs:max-sm:-mt-11 xs:max-sm:px-2"> </div>
+      <div className="flex z-[9999] fixed bg-dark-grey w-screen h-screen opacity-90 md:flex-col justify-center items-center px-24 top-24 sm:mt-1 sm:w-full sm:px-2 xs:max-sm:top-16 xs:max-sm:-mt-11 xs:max-sm:px-2"> </div>
       <div className="bg-white z-[9999] flex flex-col relative mt-10 sm:mt-2 xs:mt-1 rounded-md m-auto ">
           <h1 className="text-2xl font-sans text-center tracking-wide font-light text-dark-grey whitespace-pre-line m-10 mt-12 sm:max-md:text-xl xs:max-sm:text-lg xs:max-sm:font-light xs:max-sm:m-6">Pick your mood for today's playlist!</h1>
           <div className="flex flex-col space-between">

@@ -21,13 +21,13 @@ export default function Home() {
       </div> 
       <SearchSong />
       
-      {/* (current_track && player) ? 
+      {(current_track && player) ? 
 
       <WebPlayBackSpotify></WebPlayBackSpotify>
-      : */
+      :
       <AboutThis/>}
       <LastTracks/> 
-     { current_track && player && <WebPlayBackSpotify/>}
+     {/* { current_track && player && <WebPlayBackSpotify/>} */}
       
     </main>
     </>
