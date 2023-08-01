@@ -26,6 +26,16 @@ export type GetAlbumInfo = {
   }
 }
 
+export type Favorite = {
+    artist_name: string,
+    id?: number,
+    image: string,
+    spotify_id: string,
+    track_name: string,
+    user_id:string
+  }
+  
+
 export type Item = 
 {
     album: {
