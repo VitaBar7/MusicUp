@@ -25,8 +25,12 @@ export default function Navbar() {
     return (
         <>
         <div className="z-10 fixed whitespace-pre-wrap flex left-0 top-0 w-full items-center justify-between border-b border-gray-300 from-zinc-200 py-3 xs:max-sm:py-1 backdrop-blur-2xl">
+            {/* <Link href='/'>
+                <h1 className="flex ml-6 font-medium text-white text-4xl tracking-wider xs:max-sm:text-2xl xs:max-sm:ml-2 xs:max-sm:leading-6 ">SongSeeker </h1>
+            </Link> */}
             <Link href='/'>
-                <h1 className="flex ml-6 font-medium text-white text-4xl tracking-wider xs:max-sm:text-2xl xs:max-sm:leading-6 ">SongSeeker </h1>
+                <Image className="rounded-full ml-3 xs:max-sm:hidden" src={'/images/songseekr-vinyl-left.png'} alt={''} width={180} height={36}/>
+                <Image className="hidden rounded-full ml-1 xs:max-sm:block" src={'/images/songseeker-white.png'} alt={''} width={150} height={30}/>    
             </Link>
             <div className="flex flex-col">
                 <ul className="flex order-last flex-row flex-end gap-6 text-white mt-4 mr-10 xs:max-sm:mr-4 xs:max-sm:gap-4 xs:max-sm:text-sm hover:text-dirty-white">
@@ -35,9 +39,9 @@ export default function Navbar() {
                     <Link href="/blog"><li>Blog</li></Link>
                     <Link className="mt-1 hover:scale-110" href='/favorites'><li><img src="/icons8-heart-filled-24.png"></img></li></Link>
                 </ul> 
-                <ul className="flex flex-row justify-around xs:max-sm:mr-3"> 
+                <ul className="flex flex-row justify-around xs:max-sm:mr-0"> 
                     {isUserAuthenticated && <li className="font-thin mt-1"> <span className="font-light">{userDisplayName}</span></li>}
-                    <li className="flex-end"><SpotifyLoginButton></SpotifyLoginButton></li>
+                    <li className="flex-end xs:max-sm:mt-1"><SpotifyLoginButton></SpotifyLoginButton></li>
                 </ul>
 
             </div>
