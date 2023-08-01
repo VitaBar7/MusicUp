@@ -22,7 +22,7 @@ export default function Home() {
       <SearchSong />
       
       {(current_track && player) ? 
-      <div className="w-1/2 self-start xs:max-sm:w-3/4 xs:max-sm:-mt-28 xs:max-sm:self-center">
+      <div className="w-3/4 self-start xs:max-sm:w-3/4 xs:max-sm:-mt-28 xs:max-sm:self-center xs:max-sm:mb-6">
         <WebPlayBackSpotify></WebPlayBackSpotify>
       </div>
       :
