@@ -1,6 +1,6 @@
 import { AuthContext } from "@component/context"
 import { getTrackDetails } from "@component/api/get-tracks"
-import { GetTrack, Item} from "@component/api/types"
+import { GetTrack, Favorite} from "@component/api/types"
 import { useState, useEffect } from "react"
 import {useContext} from "react"
 import {playTrack} from "@component/api/player";
@@ -8,12 +8,14 @@ import {WebPlayBackContext} from "@component/context/webPlayBackContext";
 import { supabase } from "@component/utils/supabaseClient"
 
 
+
 export const TrackInfo = () => {
     const{ userAccessToken, isUserAuthenticated, userId } = useContext(AuthContext)
     const { deviceId } = useContext(WebPlayBackContext)
     const [trackDetails, setTrackDetails] = useState<GetTrack|undefined>(undefined)
     const [trackId, setTrackId] = useState<string>("")
-    const [favorite, setFavorite] =useState<boolean>(false)
+    const [favorite, setFavorite] =useState<Favorite|undefined>(undefined)
+
     
 
     useEffect(() => {
@@ -28,38 +30,78 @@ export const TrackInfo = () => {
 
     useEffect(() => {
     //if user is connected and trackId not empty we can get track details
-        if (trackId !== "" /* && userAccessToken !== "" */ ) {
+        if (trackId !== "" && userAccessToken !== "" ) {
             getTrackDetails(userAccessToken, trackId)
             .then(response => setTrackDetails(response))
+
+            checkFavorite().then(response => setFavorite(response))
         }
     
     }, [trackId, userAccessToken])
 
-     
+ 
+
+    async function checkFavorite():Promise<Favorite | undefined> {
+        const {data} = await supabase
+        .from('favorites')
+        .select()
+        .eq('user_id', userId)
+        .eq('spotify_id', trackId)
+        .order('id', { ascending: false })
+        
+       if(data !== null && data.length > 0){
+        
+        return (data[0]) as Favorite
+       }
+
+       return undefined   
+    }
 
     const startTrack = async () => {
         await playTrack(trackId, deviceId, userAccessToken)
     }
 
     //save track in favorites table in db: 
-    const saveFavorite = async (item: GetTrack, userId:string) => {     
+    const saveFavorite = async (favorite:Favorite) => {     
         const { error } = await supabase
         .from('favorites')
         .insert({ 
-            spotify_id: item.id, 
-            track_name: item.name, 
-            artist_name: item.artists[0].name, 
-            image: item.album.images[1].url,
-            user_id: userId
+            spotify_id: favorite.spotify_id, 
+            track_name: favorite.track_name, 
+            artist_name: favorite.artist_name, 
+            image: favorite.image,
+            user_id: favorite.user_id
         })   
     }
 
-    const heartFill = !favorite ? "/icons8-heart-24.png" : "/icons8-heart-filled-24.png"
+    const deleteFavorite = async () => {
+        await supabase
+            .from('favorites')
+            .delete()
+            .eq('user_id', userId)
+            .eq('spotify_id', trackId)
+    }
+
+
+
+    const heartFill = favorite === undefined ? "/icons8-heart-24.png" : "/icons8-heart-filled-24.png"
 
     const handleClick = async () => {
         if(isUserAuthenticated && userAccessToken && trackDetails !== undefined) {
-        await saveFavorite(trackDetails, userId)
-        setFavorite(true)
+            if(favorite === undefined) {
+                const  newFavorite:Favorite =  {
+                    spotify_id: trackDetails.id, 
+                    track_name: trackDetails.name, 
+                    artist_name: trackDetails.artists[0].name, 
+                    image: trackDetails.album.images[1].url,
+                    user_id: userId
+                }
+                await saveFavorite(newFavorite)
+                setFavorite(newFavorite)
+            } else {
+                deleteFavorite()
+                setFavorite(undefined)
+            }
         
         }
     }
@@ -96,7 +138,7 @@ export const TrackInfo = () => {
                     </div>
                     <button className="absolute m-2 flex justify-center items-center focus:outline-none focus-visible:ring focus-visible:ring-indigo-300 rounded-3xl group hover:" onClick={ startTrack }>
                         <svg className="pointer-events-none group-hover:scale-110 transition-transform duration-300 ease-in-out" xmlns="http://www.w3.org/2000/svg" fill="white" width="72" height="72">
-                            <circle className="fill-deep-magenta" cx="36" cy="36" r="36" fillOpacity=".8" />
+                            <circle className="fill-dark-grey" cx="36" cy="36" r="36" fillOpacity=".8" />
                             <path className="fill-indigo-500 drop-shadow-2xl" d="M44 36a.999.999 0 0 0-.427-.82l-10-7A1 1 0 0 0 32 29V43a.999.999 0 0 0 1.573.82l10-7A.995.995 0 0 0 44 36V36c0 .001 0 .001 0 0Z" />
                         </svg>
                     </button>
