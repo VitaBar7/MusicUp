@@ -49,7 +49,7 @@ export default function MoodOptions() {
   return (
     <>
       {!showModal ? (
-      <button id="sticky" className="z-40 fixed top-40 shadow whitespace-pre-line bg-orange/100 text-white rounded-full h-28 w-28 mr-10 p-4 self-end xs:max-sm:top-24 xs:max-sm:h-24 xs:max-sm:w-24 xs:max-sm:text-sm xs:max-sm:mr-2 hover:cursor-pointer hover:bg-orange/90 hover:shadow-xl"  onClick={() => setShowModal(true)}>
+      <button id="sticky" className="z-40 fixed top-40 shadow whitespace-pre-line bg-orange/100 text-white rounded-full h-28 w-28 mr-10 p-4 self-end xs:max-sm:top-24 xs:max-sm:h-24 xs:max-sm:w-24 xs:max-sm:text-sm xs:max-sm:mr-2 hover:cursor-pointer hover:border hover:shadow-2xl"  onClick={() => setShowModal(true)}>
         How is <br></br>your mood?
       </button>
       ): null}
