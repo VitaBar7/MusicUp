@@ -10,8 +10,7 @@ module.exports = {
   ],
   theme: {
     screens: {
-      
-      'xs': '360px',
+      'xs': '400px',
       ...defaultTheme.screens,
     },
     fontFamily: {
@@ -37,8 +36,8 @@ module.exports = {
     extend: {
       
       backgroundImage: {
-        'album-playing' : "url('/images/pexels-anton-album.jpg')",
-        'close-icon' : "url('/images/icons8-effacer-24.png')"
+        'album-playing' : "url('/pexels-anton-album.jpg')",
+        'close-icon' : "url('/icons8-effacer-24.png')"
         /* 'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))', */

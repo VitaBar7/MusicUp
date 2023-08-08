@@ -21,7 +21,7 @@ export default function MoodOptions() {
             const temporaryMoodList:Mood[] = []
             
             playlists.playlists?.map((mood:Mood) => {
-                //console.log(mood)
+                console.log(mood)
                 temporaryMoodList.push(mood)
             })
             setMoodList(temporaryMoodList)    
@@ -54,19 +54,19 @@ export default function MoodOptions() {
 
   return (
     <>
-      {!showModal ? (<button id="sticky" className="z-40 fixed top-40 whitespace-pre-line bg-orange/80 text-white rounded-full h-28 w-28 p-4 self-end xs:max-sm:top-20 xs:max-sm:h-24 xs:max-sm:w-24 xs:max-sm:text-sm hover:cursor-pointer shadow hover:opacity-75 transition"  onClick={() => setShowModal(true)}>
+      {!showModal ? (<button id="sticky" className="z-999 fixed top-40 whitespace-pre-line bg-orange/80 text-white rounded-full h-28 w-28 p-4 self-end hover:cursor-pointer shadow hover:opacity-75 transition" style={{height: '200'}} onClick={() => setShowModal(true)}>
         How is <br></br>your mood?
       </button>): null}
-      <div className="flex z-80 md:flex-col justify-center items-center px-24 sticky top-28 sm:mt-1 sm:w-full sm:px-2 xs:max-sm:top-16 xs:max-sm:mt-3 xs:max-sm:px-2">
-       {showModal ? (<div className="bg-dark-grey/90 mt-10 sm:mt-2 xs:mt-1 text-thin rounded-md m-auto ">
-          <h1 className="text-2xl font-sans tracking-wide italic font-thin text-white whitespace-pre-line m-10 mt-12 sm:max-md:text-xl xs:max-sm:text-lg xs:max-sm:font-thin xs:max-sm:m-6">Pick your mood to get the right playlist!</h1> 
+      <div className="flex md:flex-col justify-center items-center sticky top-40 sm:mt-2 xs:top-16 ">
+       {showModal ? (<div className="bg-dark-grey/80 z-12 mt-4 sm:mt-2 xs:mt-2 text-thin rounded-md font-sans m-auto ">
+          <h1 className="text-2xl tracking-wide italic font-thin text-white whitespace-pre-line m-10 mt-12 sm:text-xl xs:text-lg">Pick your mood to get the right playlist!</h1> 
           <div className="flex flex-col space-between">
-            <ul className="text-dark-grey bg-white backdrop-blur-2xl xs:px-10 pt-5 pb-6 hover:">
+            <ul className="text-dirty-white px-24 xs:px-10 pt-5 pb-6 hover:backdrop-blur-2xl">
                 {moodList?.map((mood) => {
                     return (
                         <>
                         <div className="flex">   
-                            <li className="self-start mb-3 font-thin xs:text-md"><button className="border border-dark-grey me-auto text-dirty-white bg-dark-grey rounded-full mr-2 px-2 mb-3 hover:bg-dark-grey hover:text-dirty-white  hover:font-semibold hover:px-3" onClick= {() =>{handleClick(mood.spotify_id)}}>&gt;</button> {mood.mood}
+                            <li className="self-start mb-3 font-thin xs:text-md"><button className="border border-white me-auto text-dirty-white bg-dark-grey rounded-full mr-2 px-2 mb-3 hover:bg-dirty-white hover:text-dark-grey hover:font-semibold hover:px-3" onClick= {() =>{handleClick(mood.spotify_id)}}>&gt;</button> {mood.mood}
                             </li>
                         </div>
                         </>
@@ -74,9 +74,13 @@ export default function MoodOptions() {
                 )}
             </ul>
             <button className="bg-close-icon bg-white bg-center bg-invert text-white rounded-full w-10 h-10 bg-no-repeat m-auto my-2 hover:border hover:border-dark-grey hover:rotate-45" onClick={() => setShowModal(false)}></button>
-            <p className="text-xs mb-5 font-light italic text-center tracking-wide">no playlist for me today, thanks</p>
+            <p className="text-xs mb-2 font-light italic text-center tracking-wide">no playlist for me today, thanks</p>
           </div>
-           
+           {/*  <button
+              className="my-5 w-auto m-auto px-8 h-10 font-normal text-sm italic text-grey rounded-xl shadow hover:shadow-lg hover:text-orange hover:flex-end"
+              onClick={() => setShowModal(false)}>
+              Thanks, but no playlist today
+            </button> */}
         </div>
         ): null}
     </div>

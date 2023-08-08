@@ -78,9 +78,9 @@ export const SearchSong = () => {
     
     return (
         <>
-        <div className="flex flex-row relative top-2 z-12 w-full max-w-5xl font-sans text-lg sm:flex lg:flex xs:max-sm:flex-col">
+        <div className="relative z-12 w-full mt-2 max-w-5xl font-sans text-lg sm:flex lg:flex">
             <Dropdown onChange={setDropdownValue}/>
-            <div className="mt-1.5 xs:max-sm:mt-0">
+            <div className="absolute top-0 z-12">
                 <input
                     className="rounded-sm max-h-8 mr-2 px-2 py-1 text-sm !text-dark-grey italic"
                     placeholder="write it here"
@@ -104,7 +104,7 @@ export const SearchSong = () => {
             <span className="inline-block mr-2 transition-transform group-hover:-translate-x-1 motion-reduce:transform-none">
             &lt;</span>{' '}Back to search
           </button> */}
-        <section className= "grid mb-10 text-center backdrop-blur-2xl sm:grid-cols-2 sm:gap-6 md:grid-cols-3 md:gap-6 lg:mb-0 lg:grid-cols-4 xl:grid-cols-6 2xl:grid-col-6 lg:gap-8 lg:text-left" >
+        <section className= "grid mb-10 text-center sm:grid-cols-2 sm:gap-6 md:grid-cols-3 md:gap-6 lg:mb-0 lg:grid-cols-4 xl:grid-cols-6 2xl:grid-col-6 lg:gap-8 lg:text-left" >
             {tracks && (
                 tracks?.map(item => {
                     return(
@@ -118,7 +118,7 @@ export const SearchSong = () => {
                                     src={item.album.images[0].url}
                                     alt="album image" 
                                     />
-                                    <h5 className="text-left text-sm text-white font-light text-normal tracking-wide ml-1 mt-1 leading-5 hover:tracking-wider">{item.name}</h5>
+                                    <h5 className="text-left text-sm text-white font-light text-normal tracking-wide ml-1 mt-1 tracking-tight leading-5 hover:tracking-wider">{item.name}</h5>
                                     
                                 </Link>
                             </div>
