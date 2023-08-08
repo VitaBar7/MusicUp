@@ -1,18 +1,16 @@
 import { AuthContext } from "@component/context"
 import { getTrackDetails } from "@component/api/get-tracks"
-import { GetTrack} from "@component/api/types"
+import { GetTrack } from "@component/api/types"
 import { useState, useEffect } from "react"
 import {useContext} from "react"
 import {playTrack} from "@component/api/player";
 import {WebPlayBackContext} from "@component/context/webPlayBackContext";
-
 
 export const TrackInfo = () => {
     const{ userAccessToken } = useContext(AuthContext)
     const { deviceId } = useContext(WebPlayBackContext)
     const [trackDetails, setTrackDetails] = useState<GetTrack|undefined>(undefined)
     const [trackId, setTrackId] = useState<string>("")
-    
 
     useEffect(() => {
         const queryString = window.location.search
@@ -33,13 +31,9 @@ export const TrackInfo = () => {
     
     }, [trackId, userAccessToken])
 
-     
-
     const startTrack = async () => {
         await playTrack(trackId, deviceId, userAccessToken)
     }
-
-
 
     return (
         <>
@@ -62,20 +56,10 @@ export const TrackInfo = () => {
                            by {trackDetails?.artists[0]?.name} 
                         </p>
                     </a>
-                    <button className="relative flex justify-center items-center focus:outline-none focus-visible:ring focus-visible:ring-indigo-300 rounded-3xl group hover:" onClick={ startTrack }>
-                        <svg className="pointer-events-none group-hover:scale-110 transition-transform duration-300 ease-in-out" fill="white" xmlns="http://www.w3.org/2000/svg" width="72" height="72">
-                            <circle className="fill-dark-grey" cx="36" cy="36" r="36" fillOpacity=".8" />
-                            <path className="fill-indigo-500 drop-shadow-2xl" d="M44 36a.999.999 0 0 0-.427-.82l-10-7A1 1 0 0 0 32 29V43a.999.999 0 0 0 1.573.82l10-7A.995.995 0 0 0 44 36V36c0 .001 0 .001 0 0Z" />
-                        </svg>
-                    </button>
-                    {/* <button 
-                    type="button" 
-                    className="inline-flex m-auto mb-3 px-5 pb-3 pt-2 text-sm font-light text-center text-white border-white rounded-full bg-dark-grey hover:cursor-pointer hover:opacity-90 ring-1 focus:outline-none focus:ring-light-pink dark:focus:ring-light-pink" 
-                    onClick={
-                        startTrack
-                    }>
+
+                    <button type="button" className="inline-flex m-auto mb-3 px-5 pb-3 pt-2 text-sm font-light text-center text-white border-white rounded-full bg-dark-grey hover:cursor-pointer hover:opacity-90 ring-1 focus:outline-none focus:ring-light-pink dark:focus:ring-light-pink" onClick={startTrack}>
                         play music
-                    </button> */}
+                    </button>
                 </div>
                 <div className="grid rounded-md border-transparent grid-cols-1 mx-1 p-6 transition-colors hover:border-gray-300 bg-dirty-white text-dark-grey">
                     <h3 className="text-center">Song's lyrics will be here...</h3>

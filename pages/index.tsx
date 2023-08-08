@@ -3,6 +3,7 @@ import Head from 'next/head'
 import Navbar from '../components/navbar'
 import SearchSong from '@component/components/search-bar'
 import  LastTracks from '@component/components/last-tracks'
+import  MoodOptions  from '@component/components/mood-options'
 import AboutThis from '../components/about-this'
 import WebPlayBackSpotify from "@component/components/web-play-back-spotify";
 import { useContext } from 'react'
@@ -20,7 +21,7 @@ export default function Home() {
       <div className = "bg-album-playing absolute z-0 top-0 bg-fixed bg-no-repeat bg-cover w-full" style={{height:'100vh'}}>
       </div> 
       <SearchSong />
-      
+      <MoodOptions/>
       {(current_track && player) ? <WebPlayBackSpotify></WebPlayBackSpotify> :<AboutThis/>}
       <LastTracks/> 
       
