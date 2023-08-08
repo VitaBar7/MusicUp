@@ -13,10 +13,10 @@ export const SpotifyLoginButton:React.FC = () => {
     return (
         <div className="App">
                 {!isUserAuthenticated ?
-                    <a className="bg-charbon rounded-full py-2 px-3 text-xs tracking-wider"
+                    <a className="bg-charbon rounded-full py-2 px-3 text-xs tracking-wider hover:shadow-md"
                         href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${scope}`}>
                             Login with Spotify</a>
-                    : <button className="bg-charbon rounded-full py-2 px-3 text-xs tracking-wider hover:shadow-lg" onClick={logout}>Logout</button>}
+                    : <button className="bg-charbon rounded-full py-2 px-3 text-xs tracking-wider hover:shadow-md" onClick={logout}>Logout</button>}
         </div>
     );
 }

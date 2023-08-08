@@ -10,6 +10,10 @@ async function updateImage() {
       .update({ image: "https://i.scdn.co/image/ab67616d00001e02f4f1f36551dd41c5442c2a2f" })
       .eq('id', 3)
 
+    if (playlists) {
+        console.log(playlists)
+      }
+
     } catch (error) {
       console.log(error)
   }

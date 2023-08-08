@@ -1,8 +1,8 @@
-/* 'use client'
+'use client'
 import { useState } from "react";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { SessionContextProvider } from "@supabase/auth-helpers-react";
-import { supabase } from "@component/utils/supabaseClient";
+
 import { Database } from "../types_db"
 
 
@@ -25,4 +25,4 @@ const SupabaseProvider: React.FC<SupabaseProviderProps> = ({
 }
 
 
-export default SupabaseProvider */
+export default SupabaseProvider
