@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import AboutThis from '../components/about-this'
 import Navbar from '@component/components/navbar'
-import WebPlayBackSpotify from '@component/components/web-play-back-spotify'
 
 
 export default function About() {
@@ -28,7 +27,7 @@ export default function About() {
                 </p>
             
             </div>
-            <WebPlayBackSpotify></WebPlayBackSpotify>
+            <AboutThis/>
         </main>
         </>
     )

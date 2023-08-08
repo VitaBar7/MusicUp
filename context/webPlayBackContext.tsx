@@ -39,7 +39,7 @@ export const WebPlayBackProvider = ({children}: PropsWithChildren) => {
                 const player = new window.Spotify.Player({
                     name: 'Web Playback SDK',
                     getOAuthToken: cb => { cb(userAccessToken); },
-                    volume: 0.3
+                    volume: 0.5
                 });
 
                 setPlayer(player);
