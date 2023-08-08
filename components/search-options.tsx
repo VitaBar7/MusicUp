@@ -19,7 +19,7 @@ export const Dropdown:React.FC<DropdownType> = ({onChange}) => {
                 setSearchOption(e.currentTarget.value)
                 onChange(e.currentTarget.value)
             }} 
-             className="bg-gray-50 min-w-100 pr-6 border border-gray-300 text-gray-900 text-sm rounded-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-1 border-gray-600">
+             className="bg-gray-50 min-w-100 pr-6 border border-gray-300 text-gray-900 text-sm rounded-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                 <option value="song">song</option>
                 <option value="artist">artist</option>
             </select>
