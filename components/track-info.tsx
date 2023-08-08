@@ -3,15 +3,18 @@ import { getTrackDetails } from "@component/api/get-tracks"
 import { GetTrack } from "@component/api/types"
 import { useState, useEffect } from "react"
 import {useContext} from "react"
-import {playTrack} from "@component/api/player";
-import {WebPlayBackContext} from "@component/context/webPlayBackContext";
+import { playTrack } from "@component/api/play-track"
+
+
+
 
 export const TrackInfo = () => {
-    const{ userAccessToken } = useContext(AuthContext)
-    const { deviceId } = useContext(WebPlayBackContext)
     const [trackDetails, setTrackDetails] = useState<GetTrack|undefined>(undefined)
     const [trackId, setTrackId] = useState<string>("")
-
+    const{ userAccessToken } = useContext(AuthContext)
+    const [player, setPlayer] = useState(undefined)
+    const [deviceId, setDeviceId] = useState("")
+    
     useEffect(() => {
         const queryString = window.location.search
         const urlParams = new URLSearchParams(queryString);
@@ -19,6 +22,7 @@ export const TrackInfo = () => {
         if(id !== null){
             setTrackId(id)
         }
+        console.log(id)
     }, [userAccessToken])
 
 
@@ -31,9 +35,60 @@ export const TrackInfo = () => {
     
     }, [trackId, userAccessToken])
 
-    const startTrack = async () => {
-        await playTrack(trackId, deviceId, userAccessToken)
+
+
+   /*  useEffect(() => {
+        console.log('player', userAccessToken)
+        if(userAccessToken) {
+
+            const script = document.createElement("script");
+            script.src = "https://sdk.scdn.co/spotify-player.js";
+            script.async = true;
+        
+            document.body.appendChild(script);
+            //@ts-ignore
+            window.onSpotifyWebPlaybackSDKReady = () => {
+                //@ts-ignore
+                const player = new window.Spotify.Player({
+                    name: 'Web Playback SDK',
+                    //@ts-ignore
+                    getOAuthToken: cb => { cb(props.token); },
+                    volume: 0.5
+                });
+                //@ts-ignore
+                setPlayer(player)
+                //@ts-ignore
+                player.addListener('ready', ({ device_id }) => {
+                    setDeviceId(device_id)
+                    console.log('Ready with Device ID', device_id);
+                });
+                //@ts-ignore
+                player.addListener('not_ready', ({ device_id }) => {
+                    console.log('Device ID has gone offline', device_id);
+                });
+        
+        
+                player.connect();
+                //player.togglePlay();
+            };
+        }
+    }, []); */
+
+
+    const initializeSpotifyPlayer = () => {
+       playTrack(deviceId, trackId, userAccessToken)
+     /*    //@ts-ignore
+        window.onSpotifyWebPlaybackSDKReady = () => {
+            //@ts-ignore
+            const player = new Spotify.Player({
+              name: 'Web Playback SDK Quick Start Player',
+              //@ts-ignore
+              getOAuthToken: cb => { cb(userAccessToken); },
+              volume: 0.5
+            });
+        } */
     }
+
 
     return (
         <>
@@ -57,8 +112,8 @@ export const TrackInfo = () => {
                         </p>
                     </a>
 
-                    <button type="button" className="inline-flex m-auto px-3 py-2 text-sm font-light text-center text-white border-white rounded-lg bg-dark-grey hover:cursor-pointer hover: ring-1 focus:outline-none focus:ring-light-pink dark:focus:ring-light-pink" onClick={startTrack}>
-                        play music
+                    <button type="button" className="inline-flex m-auto px-3 py-2 text-sm font-light text-center text-white border-white rounded-lg bg-dark-grey hover:cursor-pointer hover: ring-1 focus:outline-none focus:ring-light-pink dark:focus:ring-light-pink" onClick={()=>{initializeSpotifyPlayer}}>
+                        play in spotify
                         <svg aria-hidden="true" className="w-4 h-4 ml-2 mr-1 inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
                     </button>
                 </div>
