@@ -18,18 +18,17 @@ export default function LastTracks () {
         {tracks?.map((item) => {
           return (
             <>
-            <div className=" bg-black text-white rounded-sm p-1 px-4 shadow hover:drop-shadow-[0_0_0.3rem_#000000]">
+            <div className="mb-2 bg-black text-white rounded-sm p-1 shadow hover:border border-pink-600">
               <Link 
-                  href={`track-details?id=${item.spotify_id}`} onClick={() => {}} >
+                  href={`track-details?id=${item.id}`} onClick={() => handleClick(item.id)} >
                   <img
                   className="rounded-md dark:drop-shadow-[0_0_0.3rem_#ffffff70]"
                   src={item.image}
                   alt="album image"
                   />
-                <p className="text-xs italic mb-4 mt-2" key={item.id}>{item.title}
-                 {/* <span className="not-italic">by {item.artist_name}</span> */}</p>
               </Link>
               
+              <p className="text-sm italic mb-4 mt-2" key={item.id}>{item.title}, by <span className="not-italic">{item.artist_name}</span></p>
 
             </div>
             </>
@@ -46,7 +45,6 @@ export async function getServerSideProps() {
     .from('last_tracks')
     .select()
     .order('id', { ascending: false })
-    .limit(24)
 
   return {
     props: {

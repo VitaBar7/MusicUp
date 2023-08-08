@@ -35,7 +35,6 @@ export const SearchSong = () => {
             artist_name: item.album.artists[0].name, 
             image: item.album.images[1].url
         })
-        .limit(24)
    
 }
    useEffect(() => {
@@ -77,11 +76,11 @@ export const SearchSong = () => {
     
     return (
         <>
-        <div className="relative w-full mt-2 max-w-5xl font-sans text-lg sm:flex lg:flex">
+        <div className="w-full mt-2 max-w-5xl font-sans text-lg sm:flex lg:flex">
             <Dropdown onChange={setDropdownValue}/>
-            <div className="sticky top-0">
+            <div className="">
                 <input
-                    className="rounded-sm max-h-8 mr-2 px-2 py-1 text-sm !text-dark-green italic"
+                    className="rounded-sm max-h-8 mr-2 px-2 py-1 text-sm text-black italic"
                     placeholder="write it here"
                     onKeyDown={event => { if (event.key == 'Enter'){
                         search()
@@ -94,7 +93,7 @@ export const SearchSong = () => {
                         setSearchInput(event.target.value)
                     }}
                 />
-                <button className="rounded-sm mt-2 max-h-8 text-white px-2 hover:italic" onClick={search}>
+                <button className="rounded-sm mt-2 bg-black max-h-8 text-white px-2 hover:italic" onClick={search}>
                     Go!
                 </button>
             </div>
@@ -103,13 +102,13 @@ export const SearchSong = () => {
             <span className="inline-block mr-2 transition-transform group-hover:-translate-x-1 motion-reduce:transform-none">
             &lt;</span>{' '}Back to search
           </button> */}
-        <section className= "grid mb-10 text-center sm:grid-cols-2 sm:gap-6 md:grid-cols-3 md:gap-6 lg:mb-0 lg:grid-cols-4 xl:grid-col-6 lg:gap-8 lg:text-left" >
+        <section className= "grid mb-20 text-center sm:grid-cols-2 sm:gap-6 md:grid-cols-3 md:gap-6 lg:mb-0 lg:grid-cols-4 xl:grid-col-6 lg:gap-8 lg:text-left" >
             {tracks && (
                 tracks?.map(item => {
                     return(
                         <>
                         <div className="flex flex-col text-white">
-                            <div className="max-w-sm pb-2 bg-white  border-black rounded-sm p-1 shadow hover:border-pink-600">
+                            <div className="max-w-sm pb-2 bg-white border border-black rounded-sm p-1 shadow hover:border-pink-600">
                                 <Link 
                                 href={`track-details?id=${item.id}`} onClick={() => handleClick(item)}>
                                     <img
@@ -117,7 +116,7 @@ export const SearchSong = () => {
                                     src={item.album.images[0].url}
                                     alt="album image" 
                                     />
-                                    <h5 className="text-left text-sm text-gray-600 ml-1 mt-1 tracking-tight leading-5 hover:text-normal hover:tracking-wider">{item.name}</h5>
+                                    <h5 className="text-left text-sm text-gray-600 font-mono ml-1 mt-1 tracking-tight leading-5">{item.name}</h5>
                                     
                                 </Link>
                             </div>
@@ -137,11 +136,11 @@ export const SearchSong = () => {
             )}
         </section>
         {artists &&
-        <div className= "grid text-center sm:grid-cols-2 sm:gap-6 md:grid-cols-4 md:gap-6 lg:mb-0 lg:grid-cols-6 lg:gap-8 lg:text-left hover:drop-shadow-[0_0_0.3rem_#ffffff" >
+        <div className= "grid text-center sm:grid-cols-2 sm:gap-6 md:grid-cols-4 md:gap-6 lg:mb-0 lg:grid-cols-6 lg:gap-8 lg:text-left" >
                 {artists?.map(artist => {
                     return(
                         <>
-                        <div className="max-w-sm mb-2 bg-white rounded-md p-1 shadow hover:drop-shadow-[0_0_0.3rem_#282727] hover:!border-pink-600">
+                        <div className="max-w-sm mb-2 bg- border border-black rounded-md p-1 shadow hover:border-pink-600">
                             <div
                                 onClick={() => onArtistClick(artist.id)}>
                                 <img
@@ -152,7 +151,7 @@ export const SearchSong = () => {
                             </div>
                             <div className="p-2">
                                 <a href="" onClick={()=>{}}>
-                                    <h5 className="text-left text-lg text-center font-light italic tracking-wider text-white dark:text-white">{artist.name}</h5>
+                                    <h5 className="text-left text-xl text-center font-light italic tracking-wider text-white dark:text-white">{artist.name}</h5>
                                 </a>
                                 {/* <a href={artist.external_urls.spotify}>
                                     <p className="text-left font-bold text-gray-700 dark:text-gray-400">
