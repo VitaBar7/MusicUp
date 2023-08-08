@@ -1,19 +1,17 @@
 import { AuthContext } from "@component/context"
 import { getTrackDetails } from "@component/api/get-tracks"
-import { GetTrack, Item} from "@component/api/types"
+import { GetTrack} from "@component/api/types"
 import { useState, useEffect } from "react"
 import {useContext} from "react"
 import {playTrack} from "@component/api/player";
 import {WebPlayBackContext} from "@component/context/webPlayBackContext";
-import { supabase } from "@component/utils/supabaseClient"
 
 
 export const TrackInfo = () => {
-    const{ userAccessToken, isUserAuthenticated, userId } = useContext(AuthContext)
+    const{ userAccessToken } = useContext(AuthContext)
     const { deviceId } = useContext(WebPlayBackContext)
     const [trackDetails, setTrackDetails] = useState<GetTrack|undefined>(undefined)
     const [trackId, setTrackId] = useState<string>("")
-    const [favorite, setFavorite] =useState<boolean>(false)
     
 
     useEffect(() => {
@@ -41,28 +39,6 @@ export const TrackInfo = () => {
         await playTrack(trackId, deviceId, userAccessToken)
     }
 
-    //save track in favorites table in db: 
-    const saveFavorite = async (item: GetTrack, userId:string) => {     
-        const { error } = await supabase
-        .from('favorites')
-        .insert({ 
-            spotify_id: item.id, 
-            track_name: item.name, 
-            artist_name: item.artists[0].name, 
-            image: item.album.images[1].url,
-            user_id: userId
-        })   
-    }
-
-    const heartFill = !favorite ? "/icons8-heart-24.png" : "/icons8-heart-filled-24.png"
-
-    const handleClick = async () => {
-        if(isUserAuthenticated && userAccessToken && trackDetails !== undefined) {
-        await saveFavorite(trackDetails, userId)
-        setFavorite(true)
-        
-        }
-    }
 
 
     return (
@@ -74,29 +50,21 @@ export const TrackInfo = () => {
                         src={trackDetails?.album?.images[0].url}
                         alt="album image"
                         
-                    />
-                    <div className="relative group left-1 bottom-9 bg-white opacity-90 rounded-full w-[36px] pt-1 px-1"> 
-                        <button className="w-full p-1 group-hover:scale-110 " onClick={() => {
-                            handleClick()
-                            }}><img src={heartFill} alt="heart"/></button>
-                    </div>
-                    <div className="text-left">
-                        <h2 className="mb-1 text-2xl md:text-xl sm:text-lg xs:text-md tracking-wider text-dark-grey">
-                            {trackDetails?.name} 
-                        </h2>
-                        <p className= "m-0  max-w-5xl text-dark-grey md:text-sm sm:text-xs xs:text-xs text-thin text-md opacity-70">
-                            album: {trackDetails?.album?.name}  
+                        />
+                    <h2 className="mb-1 text-2xl md:text-xl sm:text-lg xs:text-md tracking-wider text-dark-grey">
+                        {trackDetails?.name} 
+                    </h2>
+                    <p className= "m-0  max-w-5xl text-dark-grey md:text-sm sm:text-xs xs:text-xs text-thin text-md opacity-70">
+                        album: {trackDetails?.album?.name}  
+                    </p>
+                    <a href={trackDetails?.artists[0]?.external_urls.spotify} target="_blank" rel="noopener noreferrer">
+                        <p className= "m-0 mb-2 max-w-5xl text-xl md:text-md sm:text-sm xs:text-xs text-thin tracking-wide text-dark-grey  opacity-80 hover:text-normal">
+                           by {trackDetails?.artists[0]?.name} 
                         </p>
-                        <a href={trackDetails?.artists[0]?.external_urls.spotify} target="_blank" rel="noopener noreferrer">
-                            <p className= "m-0 mb-2 max-w-5xl text-xl md:text-md sm:text-sm xs:text-xs text-thin tracking-wide text-dark-grey  opacity-80 hover:text-normal">
-                            by {trackDetails?.artists[0]?.name} 
-                            </p>
-                        </a>
-
-                    </div>
-                    <button className="absolute m-2 flex justify-center items-center focus:outline-none focus-visible:ring focus-visible:ring-indigo-300 rounded-3xl group hover:" onClick={ startTrack }>
-                        <svg className="pointer-events-none group-hover:scale-110 transition-transform duration-300 ease-in-out" xmlns="http://www.w3.org/2000/svg" fill="white" width="72" height="72">
-                            <circle className="fill-deep-magenta" cx="36" cy="36" r="36" fillOpacity=".8" />
+                    </a>
+                    <button className="relative flex justify-center items-center focus:outline-none focus-visible:ring focus-visible:ring-indigo-300 rounded-3xl group hover:" onClick={ startTrack }>
+                        <svg className="pointer-events-none group-hover:scale-110 transition-transform duration-300 ease-in-out" fill="white" xmlns="http://www.w3.org/2000/svg" width="72" height="72">
+                            <circle className="fill-dark-grey" cx="36" cy="36" r="36" fillOpacity=".8" />
                             <path className="fill-indigo-500 drop-shadow-2xl" d="M44 36a.999.999 0 0 0-.427-.82l-10-7A1 1 0 0 0 32 29V43a.999.999 0 0 0 1.573.82l10-7A.995.995 0 0 0 44 36V36c0 .001 0 .001 0 0Z" />
                         </svg>
                     </button>

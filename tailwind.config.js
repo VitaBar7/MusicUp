@@ -53,9 +53,7 @@ module.exports = {
       },
       backgroundImage: {
         'album-playing' : "url('/images/pexels-anton-album.jpg')",
-        'close-icon' : "url('/images/icons8-effacer-24.png')", 
-        'heart-icon' : "url('/icons8-heart-24.png')",
-        'heart-filled' : "url('/icons8-heart-filled-24.png')"
+        'close-icon' : "url('/images/icons8-effacer-24.png')"
       },
     },
   },

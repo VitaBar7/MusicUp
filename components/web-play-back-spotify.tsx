@@ -8,13 +8,13 @@ const WebPlayBackSpotify: React.FC = () => {
     return (
         <>
             {current_track !== undefined &&
-                <div className="mb-14 mt-12 w-3/4 grid mx-auto lg:mt-12 xs:max-sm:w-full xs:max-sm:mb-10 ">
-                    <div className="container mx-auto backdrop-blur-2xl  rounded-xl xs:max-sm:mb-12">
-                        <p className="text-center  font-thin tracking-wider"> Currently playing :</p>
-                        <div className="main-wrapper border rounded-xl mx-h-10 flex flex-row justify-between backdrop-blur-2xl  py-4 px-5 xs:max-sm:p-2 xs:max-sm:">
-                            <div className="w-1/5 xs:max-sm:w-1/3 content-center">
+                <div className="mb-14 mt-12 w-3/4  grid text-center lg:mt-12 xs:max-sm:w-full xs:max-sm:mb-10 ">
+                    <div className="container  m-auto">
+                        <p className="mb-2 text-center font-thin tracking-wider"> Currently playing :</p>
+                        <div className="main-wrapper mx-h-10 flex flex-row justify-between backdrop-blur-2xl border border-white rounded-xl py-4 px-5 xs:max-sm:p-2">
+                            <div className="w-1/5 xs:max-sm:w-1/4 content-center">
                                 <img src={current_track?.album.images[0].url}
-                                    className="now-playing__cover w-full h-auto rounded-md" alt="album cover"/>
+                                    className="now-playing__cover w-full h-auto rounded-sm" alt="album cover"/>
                             </div>
 
                             <div className="track_info_and_buttons flex w-4/6 rounded-xl p-2 px-4 flex-col justify-between" >
@@ -28,7 +28,7 @@ const WebPlayBackSpotify: React.FC = () => {
                                 </div>
                                 <div className="player__buttons flex justify-around">
                                     <button className="text-xs" onClick={() => {
-                                        player?.previousTrack()
+                                        player.previousTrack()
                                     }}>
                                         <span 
                                         className="inline-block transition-transform group hover:-translate-x-1 motion-reduce:transform-none mr-1">
@@ -36,14 +36,14 @@ const WebPlayBackSpotify: React.FC = () => {
                                         Previous 
                                     </button>
 
-                                    <button className="font-light text-md bg-dark-grey tracking-wider rounded-full py-3 px-5 xs:max-sm:lowercase xs:text-xs xs:max-sm:p-2 over:opacity-80" onClick={() => {
-                                        player?.togglePlay()
+                                    <button className="font-light text-md bg-dark-grey tracking-wider rounded-full py-3 px-5 xs:max-sm:lowercase xs:text-xs xs:max-sm:p-2 hover:opacity-80" onClick={() => {
+                                        player.togglePlay()
                                     }}>
                                         {is_paused ? "PLAY" : "PAUSE"}
                                     </button>
 
                                     <button className="text-xs" onClick={() => {
-                                        player?.nextTrack()
+                                        player.nextTrack()
                                     }}>
                                     Next 
                                         <span className="inline-block transition-transform group ml-1 hover:translate-x-1 motion-reduce:transform-none">

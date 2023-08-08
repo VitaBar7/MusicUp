@@ -15,19 +15,15 @@ export default function Home() {
     <Head>
         <title>Look up!</title>
     </Head>
-    <main className="flex min-h-screen w-full flex-col items-center justify-between py-20 px-24 sm:px-8 xs:max-sm:px-4 xs:max-sm:w-full">
+    <main className="flex min-h-screen flex-col items-center justify-between py-20 px-24 sm:px-8 xs:max-sm:px-4 xs:max-sm:w-full">
       <Navbar></Navbar>
-      <div className = "bg-album-playing absolute z-0 top-0 bg-fixed bg-no-repeat bg-cover w-full" style={{height:'100vh', minWidth:'100vw'}}>
+      <div className = "bg-album-playing absolute z-0 top-0 bg-fixed bg-no-repeat bg-cover w-full" style={{height:'100vh'}}>
       </div> 
       <SearchSong />
       
-      {/* (current_track && player) ? 
-
-      <WebPlayBackSpotify></WebPlayBackSpotify>
-      : */
-      <AboutThis/>}
+      {(current_track && player) ? <WebPlayBackSpotify></WebPlayBackSpotify> :<AboutThis/>}
       <LastTracks/> 
-     { current_track && player && <WebPlayBackSpotify/>}
+      
       
     </main>
     </>
