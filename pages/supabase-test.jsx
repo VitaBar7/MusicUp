@@ -1,6 +1,6 @@
 import { supabase } from '@component/utils/supabaseClient';
 //import  { Database }  from '@component/lib/database.types'
-import  MoodOptions  from '@component/components/mood-options'
+import  MoodOptions  from '@component/components/mood-options';
 import { useState } from "react"
 
 
