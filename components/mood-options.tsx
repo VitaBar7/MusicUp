@@ -57,10 +57,10 @@ export default function MoodOptions() {
 
   return (
     <>
-      {!showModal ? (<button id="sticky" className="z-40 fixed top-40 shadow whitespace-pre-line bg-orange/95 text-white rounded-full h-28 w-28 mr-10 p-4 self-end xs:max-sm:top-24 xs:max-sm:h-24 xs:max-sm:w-24 xs:max-sm:text-sm xs:max-sm:mr-2 hover:cursor-pointer hover:bg-orange/100 hover:animate-liquid hover:shadow-xl"  onClick={() => setShowModal(true)}>
+      {!showModal ? (<button id="sticky" className="z-40 fixed top-40 shadow whitespace-pre-line bg-orange/90 text-white rounded-full h-28 w-28 mr-10 p-4 self-end xs:max-sm:top-24 xs:max-sm:h-24 xs:max-sm:w-24 xs:max-sm:text-sm xs:max-sm:mr-2 hover:cursor-pointer hover:bg-orange/100 hover:animate-liquid hover:shadow-xl"  onClick={() => setShowModal(true)}>
         How is <br></br>your mood?
       </button>): null}
-      <div className="flex z-80 md:flex-col justify-center items-center px-24 sticky top-28 sm:mt-1 sm:w-full sm:px-2 xs:max-sm:top-16 xs:max-sm:-mt-11 xs:max-sm:px-2">
+      <div className="flex z-80 md:flex-col justify-center items-center px-24 sticky top-28 sm:mt-1 sm:w-full sm:px-2 xs:max-sm:top-16 xs:max-sm:mt-3 xs:max-sm:px-2">
        {showModal ? (<div className="bg-dark-grey/90 mt-10 sm:mt-2 xs:mt-1 text-thin rounded-md m-auto ">
           <h1 className="text-2xl font-sans tracking-wide italic font-thin text-white whitespace-pre-line m-10 mt-12 sm:max-md:text-xl xs:max-sm:text-lg xs:max-sm:font-thin xs:max-sm:m-6">Pick your mood to get the right playlist!</h1>
           <div className="flex flex-col space-between">
