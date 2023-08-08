@@ -9,7 +9,6 @@ export const login = async () => {
         headers: {
             'Authorization': 'Basic MGU3ZDc0MTNiNzQ5NDM4MzgxNGUwMzZjMWQ1Mjc0Njc6MTMwOWM2YTk2M2Q3NDhjOTlhMDc4NWNiMWU2OTBkNWQ=',
             'content-type': 'application/x-www-form-urlencoded'
-            
           },
           body: formBody.join("&")       
     }

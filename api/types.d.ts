@@ -44,8 +44,7 @@ export type GetTrack = {
   external_urls: {
     spotify: string
   },
-  artists: Artists[],
-  uri: string
+  artists: Artists[]
 }
 
 export type Album = {
