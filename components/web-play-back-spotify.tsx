@@ -9,8 +9,8 @@ const WebPlayBackSpotify: React.FC = () => {
         <>
             {current_track !== undefined &&
                 <div className="mb-14 mt-12 w-3/4 grid mx-auto lg:mt-12 xs:max-sm:w-full xs:max-sm:mb-10 ">
-                    <div className="container mx-auto z-[9999] rounded-xl xs:max-sm:mb-12">
-                        <p className="text-left mt-20 ml-2 font-thin tracking-wider"> Currently playing :</p>
+                    <div className="container mx-auto backdrop-blur-2xl  rounded-xl xs:max-sm:mb-12">
+                        <p className="text-center  font-thin tracking-wider"> Currently playing :</p>
                         <div className="main-wrapper border rounded-xl mx-h-10 flex flex-row justify-between backdrop-blur-2xl  py-4 px-5 xs:max-sm:p-2 xs:max-sm:">
                             <div className="w-1/5 xs:max-sm:w-1/3 content-center">
                                 <img src={current_track?.album.images[0].url}
