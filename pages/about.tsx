@@ -8,7 +8,7 @@ export default function About() {
     return (
         <>
         <Head>
-        <title>songSeeker - About</title>
+        <title>Look up! - About</title>
         </Head>
         <main className="flex min-h-screen flex-col items-center justify-between py-20 px-24 sm:px-8 xs:max-sm:px-4 xs:max-sm:w-full">
             <Navbar></Navbar>
