@@ -1,20 +1,7 @@
 import Link from 'next/link'
-import SpotifyLoginButton from "@component/components/spotify-login-button";
-import React, {useContext, useEffect, useState} from "react";
-import {getUserDisplayName} from "@component/api/user-profile";
-import {AuthContext} from "@component/context";
 
 
 export default function Navbar() {
-    const{ userAccessToken, isUserAuthenticated } = useContext(AuthContext)
-    const [ userDisplayName, setUserDisplayName] = useState<string>("")
-
-    useEffect(() => {
-        if(isUserAuthenticated) {
-            getUserDisplayName(userAccessToken)
-                .then(response => setUserDisplayName(response))
-        }
-    }, [isUserAuthenticated])
 
     return (
         <>
@@ -26,8 +13,6 @@ export default function Navbar() {
                 <Link href='/'><li className=" text-white hover:text-dirty-white">Home</li></Link>
                 <Link href='/about'><li>About</li></Link>
                 <Link href="/blog"><li>Blog</li></Link>
-                {isUserAuthenticated && <li>{userDisplayName}</li>}
-                <li><SpotifyLoginButton></SpotifyLoginButton></li>
             </ul>  
       </div>
         </>

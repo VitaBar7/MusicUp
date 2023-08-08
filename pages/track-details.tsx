@@ -3,26 +3,25 @@ import { TrackInfo } from '@component/components/track-info'
 import { Inter } from 'next/font/google'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
-import WebPlayBackSpotify from "@component/components/web-play-back-spotify";
 
 const inter = Inter({ subsets: ['latin'] })
 
 
 export default function TrackDetails() {
   const router = useRouter()
-
+  
   return (
     <>
       <Head>
         <title>Look up! - track details</title>
       </Head>
-      <main className="flex min-h-screen md:px-24 lg:px-28 xl:px-32 2xl:px-36 py-4 flex-col items-center justify-between xs:px-2">
-        <div className="z-10 w-full max-w-5xl mx-24 items-center justify-between font-sans text-lg sm:flex lg:flex">
+      <main className="flex min-h-screen md:px-24 lg:px-28 xl:px-32 2xl:px-36 py-4 flex-col items-center justify-between xs:px-2"> 
+        <div className="z-10 w-full max-w-5xl mx-24 items-center justify-between font-sans text-lg sm:flex lg:flex"> 
             <button className="left-1 top-1 ml-2 flex text-white hover:italic mt-6" type="button" onClick={() => router.back()}>
               <span className="inline-block transition-transform group-hover:-translate-x-1 motion-reduce:transform-none">
               &lt;</span>{' '}Back
             </button>
-        </div>
+        </div> 
         <TrackInfo/>
         <div className="mb-24 grid text-center self-center lg:mt-12  lg:text-left">
           <a
@@ -42,7 +41,6 @@ export default function TrackDetails() {
             </p>
           </a>
         </div>
-        <WebPlayBackSpotify></WebPlayBackSpotify>
       </main>
     </>
   )

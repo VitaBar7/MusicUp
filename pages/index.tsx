@@ -5,7 +5,6 @@ import  LastTracks from '@component/components/last-tracks'
 import  MoodOptions  from '@component/components/mood-options'
 import AboutThis from '../components/about-this'
 import Head from 'next/head'
-import WebPlayBackSpotify from "@component/components/web-play-back-spotify";
 
 export default function Home() {
   
@@ -23,7 +22,6 @@ export default function Home() {
       <AboutThis/>
       <LastTracks/> 
       <AboutThis/>
-      <WebPlayBackSpotify></WebPlayBackSpotify>
     </main>
     </>
   )
