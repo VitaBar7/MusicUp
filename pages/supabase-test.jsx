@@ -1,6 +1,6 @@
 import { supabase } from '@component/utils/supabaseClient';
 //import  { Database }  from '@component/lib/database.types'
-
+import  MoodOptions  from '@component/components/mood-options'
 import { useState } from "react"
 
 
@@ -25,8 +25,6 @@ export async function showPlaylist() {
     .from('playlists')
     .eq('mood' , {mood})
     .select(spotify_id)
-    .limit(1)
-    .single()
   return {
     props: {
       playlists: data

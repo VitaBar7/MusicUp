@@ -9,7 +9,7 @@ export default function TrackDetails() {
   const router = useRouter()
     
   return (
-    <main className="flex min-h-screen px-32 py-4 flex-col items-center justify-between"> 
+    <main className="flex min-h-screen pb-32 flex-col items-center justify-between p-0"> 
       <div className="z-10 w-full max-w-5xl items-center justify-between font-sans text-lg sm:flex lg:flex"> 
           <button className="left-1 top-1 ml-2 flex text-white hover:italic mt-6" type="button" onClick={() => router.back()}>
             <span className="inline-block transition-transform group-hover:-translate-x-1 motion-reduce:transform-none">
@@ -17,7 +17,7 @@ export default function TrackDetails() {
           </button>
       </div> 
       <TrackInfo/>
-      <div className="mb-24 grid text-center self-center lg:mt-12  lg:text-left">
+      <div className="mt-6 mb-100 grid text-center lg:mb-0 lg:grid-cols-2 lg:text-left">
         <a
           href=""
           className="group rounded-lg border border-transparent mx-1 px-5 py-4 transition-colors hover:border-gray-300 hover:bg-black hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
@@ -30,7 +30,7 @@ export default function TrackDetails() {
               &gt;
             </span>
           </h2>
-          <p className={`max-w-[30ch] text-xs italic text-white opacity-60`}>
+          <p className={`m-0 max-w-[30ch] text-xs italic text-white opacity-60`}>
             This is a site about music. Look up a song or an artist you would like to listen to. See the lyrics, some info and enjoy!
           </p>
         </a>

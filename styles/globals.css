@@ -29,6 +29,10 @@ a:hover {
   font-style: italic;
 } 
 
+/* img {
+  max-width: 100%;
+  display: block;
+} */
 
 :root {
   --foreground-rgb: 255, 255, 255; 
@@ -36,6 +40,16 @@ a:hover {
   --background-end-rgb: 0, 0, 0;
   ---background-image: url("https://images.pexels.com/photos/145707/pexels-photo-145707.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")
 }
+
+/* @media (prefers-color-scheme: light) {
+  :root {
+    /* --foreground-rgb: 85, 85, 85, 0.98; 
+     --background-start-rgb: 214, 219, 220;
+    --foreground-rgb: 255, 255, 255;
+    
+    --background-end-rgb: 0, 0, 0;
+  } 
+}*/
 
 body {
   color: rgb(var(--foreground-rgb));

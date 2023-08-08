@@ -1,26 +1,28 @@
 import SearchSong from '@component/components/search-bar'
 import  LastTracks from '@component/components/last-tracks'
 import Image from 'next/image'
-import  MoodOptions  from '@component/components/mood-options'
 
 export default function Home() {
   
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between py-20 px-24">
-      <div className="z-10 w-full h-48 max-w-5xl items-center justify-between font-sans text-lg sm:flex md:flex lg:flex">
+    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+      <div className="z-10 w-full max-w-5xl items-center justify-between font-sans text-lg sm:flex md:flex lg:flex">
         <p className="fixed whitespace-pre-wrap flex left-0 top-0 w-full justify-center font-medium text-white text-5xl tracking-wider border-b border-gray-300 from-zinc-200 pb-6 pt-8 backdrop-blur-2xl md:text-white ">
-          Look up! 
+          Look it up 
           <span className="flex text-xs font-light text-white">music app</span>
         </p>
       </div>
       <SearchSong />
       
-      <div className = "bg-album-playing absolute z-0 top-0 bg-fixed bg-no-repeat bg-cover w-full" style={{height:'100vh'}}>
-        <MoodOptions/>
+      <button className="absolute z-11 sticky top-40 bg-orange/80 text-white rounded-full p-6 self-end hover:cursor-pointer shadow hover:shadow-lg" style={{height: '200'}} onClick={()=>{}}>
+        How is your mood?
+      </button>
+      
+      <div className = "bg-album-playing top-0 bg-fixed" style={{backgroundAttachment: 'fixed', minHeight: '480px'}}>
       </div>
-     {/*  <Image className = "z-0 bg-fixed bg-album-playing object-contain" src="" fill alt="" /> */}
+      {/* <Image className = "z-0 bg-fixed bg-album-playing object-contain" src="" fill alt="" /> */}
       <LastTracks/>     
-      <div className="mt-16 mb-20 grid text-center lg:mb-0 lg:grid-cols-2 lg:text-left">
+      <div className="mt-6 mb-20 grid text-center lg:mb-0 lg:grid-cols-2 lg:text-left">
         <a
           href="/"
           className="group rounded-lg border border-transparent mx-1 px-5 py-4 transition-colors hover:border-gray-300 hover:bg-black hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"

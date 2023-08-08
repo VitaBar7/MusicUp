@@ -78,11 +78,11 @@ export const SearchSong = () => {
     
     return (
         <>
-        <div className="relative z-12 w-full mt-2 max-w-5xl font-sans text-lg sm:flex lg:flex">
+        <div className="relative w-full mt-2 max-w-5xl font-sans text-lg sm:flex lg:flex">
             <Dropdown onChange={setDropdownValue}/>
-            <div className="absolute top-0 z-12">
+            <div className="sticky top-0">
                 <input
-                    className="rounded-sm max-h-8 mr-2 px-2 py-1 text-sm !text-dark-grey italic"
+                    className="rounded-sm max-h-8 mr-2 px-2 py-1 text-sm !text-dark-green italic"
                     placeholder="write it here"
                     onKeyDown={event => { if (event.key == 'Enter'){
                         search()
@@ -110,7 +110,7 @@ export const SearchSong = () => {
                     return(
                         <>
                         <div className="flex flex-col text-white">
-                            <div className="max-w-sm pb-2 rounded-sm p-1 shadow hover:shadow-xl">
+                            <div className="max-w-sm pb-2 bg-white  border-black rounded-sm p-1 shadow hover:border-pink-600">
                                 <Link 
                                 href={`track-details?id=${item.id}`} onClick={() => handleClick(item)}>
                                     <img
@@ -118,7 +118,7 @@ export const SearchSong = () => {
                                     src={item.album.images[0].url}
                                     alt="album image" 
                                     />
-                                    <h5 className="text-left text-sm text-white font-light text-normal tracking-wide ml-1 mt-1 tracking-tight leading-5 hover:tracking-wider">{item.name}</h5>
+                                    <h5 className="text-left text-sm text-gray-600 ml-1 mt-1 tracking-tight leading-5 hover:text-normal hover:tracking-wider">{item.name}</h5>
                                     
                                 </Link>
                             </div>
@@ -142,7 +142,7 @@ export const SearchSong = () => {
                 {artists?.map(artist => {
                     return(
                         <>
-                        <div className="max-w-sm mb-2 rounded-md p-1 shadow hover:drop-shadow-[0_0_0.3rem_#282727] hover:!border-pink-600">
+                        <div className="max-w-sm mb-2 bg-white rounded-md p-1 shadow hover:drop-shadow-[0_0_0.3rem_#282727] hover:!border-pink-600">
                             <div
                                 onClick={() => onArtistClick(artist.id)}>
                                 <img
@@ -179,7 +179,7 @@ export const SearchSong = () => {
                 albums?.map(album => {  
                 return(
                     <>
-                    <div className="max-w-sm mb-2 bg-white text-dark-grey rounded-md p-1 shadow hover:border hover:border-deep-magenta">
+                    <div className="max-w-sm mb-2 bg-white border border-black rounded-md p-1 shadow dark:border-gray-700 hover:border-pink-600">
                         <Link 
                         href={album.external_urls.spotify} onClick={()=>{}}
                         target='_blank'
@@ -192,10 +192,10 @@ export const SearchSong = () => {
                         </Link>
                         <div className="p-1 pt-2">
                             <a href={album.external_urls.spotify} target='_blank' rel="noopener noreferrer">
-                                <h5 className="text-left text-xl font-semibold leading-5 tracking-tight text-dark-grey">{album.name}</h5>
+                                <h5 className="text-left text-xl font-semibold leading-5 tracking-tight text-gray-900">{album.name}</h5>
                             </a>
                             <a href="">
-                                <p className="text-left text-xl tracking-wider font-semibold text-grey">
+                                <p className="text-left text-xl tracking-wider font-semibold text-gray-500">
                                     {album.artists[0].name}
                                 </p>
                             </a>
