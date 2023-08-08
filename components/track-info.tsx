@@ -3,7 +3,6 @@ import { getTrackDetails } from "@component/api/get-tracks"
 import { GetTrack } from "@component/api/types"
 import { useState, useEffect } from "react"
 import {useContext} from "react"
-import { supabase } from '@component/utils/supabaseClient';
 
 
 
@@ -20,27 +19,27 @@ export const TrackInfo = () => {
         if(id !== null){
             setTrackId(id)
         }
+        console.log("test")
         console.log(id)
     }, [userAccessToken])
 
+    //save last tracks > search: 
+    const saveSearch = () => {
 
+    }
     useEffect(() => {
     //if user is connected and trackId not empty we can get track details
         if (trackId !== "" && userAccessToken !== "" ) {
             getTrackDetails(userAccessToken, trackId)
             .then(response => setTrackDetails(response))
         }
-    
-    }, [trackId, userAccessToken])
+        //console.log(trackDetails)
+        console.log(trackDetails)
+        }, [trackId, userAccessToken])
 
     useEffect(() => { 
         console.log(trackDetails?.artists)
-    }, [trackDetails])
-
-    useEffect(() => {
-
-    })
-
+        }, [trackDetails])
 
     return (
         <>
