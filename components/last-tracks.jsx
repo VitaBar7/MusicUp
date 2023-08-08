@@ -1,19 +1,15 @@
 import { supabase } from '@component/utils/supabaseClient';
 import  { Database }  from '@component/lib/database.types'
 
-export default function GetLastTracks ({ search }) {
+export default function getLastTracks ({ search }) {
   console.log({ search })
   return (
-    <div>
-      {search?.map((item) => {
-        return (
-          <>
-          <img src={item.image}/>
-          <p key={item.id}>{item.title}</p>
-          </>
-        //console.log(item.title)
-        )})}
-    </div>
+    <ul>
+      {search?.map((item) => (
+        <li key={item.id}>{item.title}</li>
+        //console.log(country.name)
+        ))}
+    </ul>
   );
 }
 

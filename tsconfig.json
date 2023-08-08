@@ -18,6 +18,6 @@
       "@component/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/supabase-test.jsx", "components/last-tracks.jsx", "pages/api/playlists.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/supabase-fetch-test.jsx", "components/last-tracks.jsx"],
   "exclude": ["node_modules"]
 }
