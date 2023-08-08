@@ -1,5 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react'
 import Link from 'next/link'
+//import { useHistory } from 
 import { useRouter } from 'next/navigation'
 import { AuthContext } from '@component/context'
 import { getTracks } from "@component/api/get-tracks"
@@ -9,7 +10,7 @@ import Dropdown from './search-options'
 import { supabase } from '@component/utils/supabaseClient'
 import MoodOptions from './mood-options'
 import BackButton from './back-button'
-
+//import placeholderImage from '/pexels-profile-771742.webp'
 
 const placeholderImage = '/pexels-profile-771742.png'
 
