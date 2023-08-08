@@ -71,7 +71,7 @@ export const SearchSong = () => {
             <Dropdown onChange={setDropdownValue}/>
             <div className="">
                 <input
-                    className="rounded-sm max-h-8 mr-2 px-2 py-1 text-sm text-black italic"
+                    className="rounded-sm max-h-8 mr-2 px-2 py-1 text-sm italic"
                     placeholder="write it here"
                     onKeyDown={event => { if (event.key == 'Enter'){
                         search()
@@ -132,11 +132,11 @@ export const SearchSong = () => {
                 {artists?.map(artist => {
                     return(
                         <>
-                        <div className="max-w-sm mb-2 bg- border border-black rounded-md p-1 shadow hover:border-pink-600" key={artist.id}>
+                        <div className="max-w-sm mb-2 bg- border border-black rounded-md p-1 shadow dark:bg-gray-800 dark:border-gray-700 hover:border-pink-600" key={artist.id}>
                             <div
                                 onClick={() => onArtistClick(artist.id)}>
                                 <img
-                                className="relative cursor-pointer rounded-full dark:drop-shadow-[0_0_0.3rem_#ffffff70]"
+                                className="relative cursor-pointer rounded-full dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
                                 src={artist?.images[0]?.url}
                                 alt="album image"
                                 />
@@ -169,27 +169,27 @@ export const SearchSong = () => {
                 albums?.map(album => {  
                 return(
                     <>
-                    <div className="max-w-sm mb-2 bg-white border border-black rounded-md p-1 shadow dark:border-gray-700 hover:border-pink-600" key={album.id}>
+                    <div className="max-w-sm mb-2 bg-white border border-black rounded-md p-1 shadow dark:bg-gray-800 dark:border-gray-700 hover:border-pink-600" key={album.id}>
                         <Link 
                         href={album.external_urls.spotify} onClick={()=>{}}
                         target='_blank'
                         rel="noopener noreferrer">
                             <img
-                            className="relative rounded-md dark:drop-shadow-[0_0_0.3rem_#ffffff70]"
+                            className="relative rounded-md dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
                             src={album?.images[0]?.url}
                             alt="album image"
                             />
                         </Link>
                         <div className="p-1 pt-2">
                             <a href={album.external_urls.spotify} target='_blank' rel="noopener noreferrer">
-                                <h5 className="text-left text-xl font-semibold leading-5 tracking-tight text-gray-900">{album.name}</h5>
+                                <h5 className="text-left text-xl font-semibold leading-5 tracking-tight text-gray-900  dark:text-white">{album.name}</h5>
                             </a>
                             <a href="">
-                                <p className="text-left text-xl tracking-wider font-semibold text-gray-500">
+                                <p className="text-left text-xl tracking-wider font-semibold text-gray-500 dark:text-gray-400">
                                     {album.artists[0].name}
                                 </p>
                             </a>
-                            <p className="font-normal text-sm text-left text-gray-700">
+                            <p className="font-normal text-sm text-left text-gray-700 dark:text-gray-400">
                                 {album.release_date}
                             </p>
                         </div>
