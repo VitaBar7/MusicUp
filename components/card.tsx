@@ -36,7 +36,7 @@ export const HomeCard = () => {
                         <Link 
                         href={`http://localhost:3000/track-details?id=${item.id}`} onClick={()=> handleClick} >
                             <img
-                            className="relative rounded-md dark:drop-shadow-[0_0_0.3rem_#ffffff70]"
+                            className="relative rounded-md dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
                             src={item.album.images[0].url}
                             alt="album image"
                             />
