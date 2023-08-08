@@ -7,7 +7,6 @@ import { getTracks } from "@component/api/get-tracks"
 import { getAlbums, getArtist } from '@component/api/get-artists'
 import { Album, Artists, Item } from "@component/api/types"
 import Dropdown from './search-options'
-import { supabase } from '@component/utils/supabaseClient'
 
 
 export const SearchSong = () => {
@@ -18,25 +17,14 @@ export const SearchSong = () => {
     const [albums, setAlbums] = useState<Album[]>([])
     const [artistId, setArtistId] = useState<string|null>("")
     const [searchDropdownValue, setDropdownValue] = useState<string>("song")
+    //const [isHidden, setIsHidden] = useState<string>("hidden")
     const router = useRouter()
 
-    const handleClick = async (item:Item) => {
+    const handleClick = (id: string) => {
         console.log("click")
-        await saveTracks(item)
-        router.push(`http://localhost:3000/track-details?id=${item.id}`)}
+        router.push(`http://localhost:3000/track-details?id=${id}`)}
+        //save track here?
         
- //save last tracks: 
- const saveTracks = async (item: Item) => {     
-    const { error } = await supabase
-        .from('last_tracks')
-        .insert({ 
-            spotify_id: item.id, 
-            title: item.name, 
-            artist_name: item.album.artists[0].name, 
-            image: item.album.images[1].url
-        })
-   
-}
    useEffect(() => {
     console.log(searchDropdownValue)
    }, [searchDropdownValue])
@@ -76,7 +64,7 @@ export const SearchSong = () => {
     
     return (
         <>
-        <div className="w-full mt-2 max-w-5xl font-sans text-lg sm:flex lg:flex">
+        <div className="w-full mt-2 mb-6 max-w-5xl font-sans text-lg sm:flex lg:flex">
             <Dropdown onChange={setDropdownValue}/>
             <div className="">
                 <input
@@ -102,7 +90,7 @@ export const SearchSong = () => {
             <span className="inline-block mr-2 transition-transform group-hover:-translate-x-1 motion-reduce:transform-none">
             &lt;</span>{' '}Back to search
           </button> */}
-        <section className= "grid mb-20 text-center sm:grid-cols-2 sm:gap-6 md:grid-cols-3 md:gap-6 lg:mb-0 lg:grid-cols-4 xl:grid-col-6 lg:gap-8 lg:text-left" >
+        <section className= "grid text-center sm:grid-cols-2 sm:gap-6 md:grid-cols-3 md:gap-6 lg:mb-0 lg:grid-cols-4 xl:grid-col-6 lg:gap-8 lg:text-left" >
             {tracks && (
                 tracks?.map(item => {
                     return(
@@ -110,7 +98,7 @@ export const SearchSong = () => {
                         <div className="flex flex-col text-white">
                             <div className="max-w-sm pb-2 bg-white border border-black rounded-sm p-1 shadow hover:border-pink-600">
                                 <Link 
-                                href={`track-details?id=${item.id}`} onClick={() => handleClick(item)}>
+                                href={`track-details?id=${item.id}`} onClick={() => handleClick(item.id)}>
                                     <img
                                     className="relative rounded-md dark:drop-shadow-[0_0_0.3rem_#ffffff70]"
                                     src={item.album.images[0].url}
