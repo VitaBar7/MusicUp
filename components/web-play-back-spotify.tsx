@@ -1,7 +1,6 @@
 import React, {useContext} from "react";
 import {WebPlayBackContext} from "@component/context/webPlayBackContext";
 
-
 const WebPlayBackSpotify: React.FC = () => {
     const {current_track, is_paused, player} = useContext(WebPlayBackContext)
 
@@ -19,10 +18,10 @@ const WebPlayBackSpotify: React.FC = () => {
 
                             <div className="track_info_and_buttons flex w-4/6 rounded-xl p-2 px-4 flex-col justify-between" >
                                 <div className="now-playing__side flex flex-col justify-around text-right ">
-                                    <p className="now-playing__name text-xl tracking-wider xs:max-sm:text-sm ml-3">{
+                                    <p className="now-playing__name text-lg tracking-wider xs:max-sm:text-sm ml-3">{
                                         current_track?.name
                                     }</p>
-                                    <p className="now-playing__artist font-thin text-lg xs:max-sm:text-xs ml-3">{
+                                    <p className="now-playing__artist font-thin text-lg xs:max-sm:text-sm ml-3">{
                                         current_track?.artists[0].name
                                     }</p>
                                 </div>
@@ -36,7 +35,7 @@ const WebPlayBackSpotify: React.FC = () => {
                                         Previous 
                                     </button>
 
-                                    <button className="font-light text-md bg-dark-grey tracking-wider rounded-full py-3 px-5 xs:max-sm:lowercase xs:text-xs xs:max-sm:p-2 hover:opacity-80" onClick={() => {
+                                    <button className="font-light text-md bg-dark-grey tracking-wider rounded-full px-5 xs:max-sm:text-xs xs:max-sm:px-2 hover:opacity-80" onClick={() => {
                                         player.togglePlay()
                                     }}>
                                         {is_paused ? "PLAY" : "PAUSE"}

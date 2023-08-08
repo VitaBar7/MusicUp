@@ -1,11 +1,9 @@
-//import { getUserInfo } from '@component/api/user-profile'
 import {createContext, useState, useEffect, PropsWithChildren} from 'react'
 
 type AuthContextType = {
     userAccessToken: string
     isUserAuthenticated: boolean
     logout: () => void
-    
 }
 
 export const AuthContext = createContext<AuthContextType>({
@@ -13,12 +11,10 @@ export const AuthContext = createContext<AuthContextType>({
     isUserAuthenticated: false,
     logout: () => {
     }
-    
 })
 
 export const AuthProvider = ({children}: PropsWithChildren) => {
     const [userAccessToken, setUserAccessToken] = useState<string>("")
-   
 
     const logout = () => {
         setUserAccessToken("")
@@ -39,7 +35,6 @@ export const AuthProvider = ({children}: PropsWithChildren) => {
             setUserAccessToken(token)
         }
     }, [])
-    
 
     return (
         <AuthContext.Provider value={{

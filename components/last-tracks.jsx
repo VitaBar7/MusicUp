@@ -7,14 +7,14 @@ export default function LastTracks () {
   const [tracks, setTracks] = useState(null)
 
   useEffect(() => {
-    getLastTracks().then((last_tracks)=> setTracks(last_tracks.props.search)) 
+    getServerSideProps().then((last_tracks)=> setTracks(last_tracks.props.search)) 
   }, [])
 
   console.log({ tracks })
   return (
     <>
       <h2 className={`self-start z-10 sticky top-[80px] xl:top-[80px] lg:top-[80px] text-3xl mt-64 lg:text-3xl lg:mt-20 md:self-start md:mt-10 ml-2 md:ml-0 md:top-[84px] sm:text-2xl sm:self-center sm:top-[84px] xs:text-md xs:max-sm:top-[46px] xs:max-sm:mt-4 xs:max-sm:mb-24 xs:self-start xs:text-[1.3rem] tracking-wider text-white`}>Last tracks: </h2>
-      <div className="grid relative mb-16 rounded-md text-center backdrop-blur-2xl xs:grid-cols-2 sm:grid-cols-3 sm:gap-6 md:grid-cols-4 md:gap-6 lg:mb-16 lg:grid-cols-5 lg:gap-6 lg:text-left xl:grid-cols-6 xl:gap-8 xs:max-sm:gap-6 xs:max-sm:p-4 xs:max-sm:-mt-20 xs:max-sm:mb-12">
+      <div className="grid relative mb-16 rounded-md text-center backdrop-blur-2xl xs:grid-cols-2 sm:grid-cols-3 sm:gap-6 md:grid-cols-4 md:gap-6 lg:mb-16 lg:grid-cols-4 lg:gap-6 lg:text-left xl:grid-cols-6 xl:gap-8 xs:max-sm:gap-6 xs:max-sm:p-4 xs:max-sm:-mt-20 xs:max-sm:mb-12">
         {tracks?.map((item) => {
           return (
             <>
@@ -39,33 +39,18 @@ export default function LastTracks () {
 }
 
 
-export async function getLastTracks() {
+export async function getServerSideProps() {
   let { data } = await supabase
     .from('last_tracks')
     .select()
     .order('id', { ascending: false })
-    .limit(30)
+    .limit(24)
 
   return {
     props: {
       search: data
     },
   }
-}
-
-export async function getUserTracks() {
-  let { data } = await supabase
-  .from('last_tracks')
-  .select()
-  .eq('user_id', )
-  .order('id', { ascending: false })
-  .limit(24)
-
-return {
-  props: {
-    search: data
-  },
-}
 }
 
 

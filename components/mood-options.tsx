@@ -43,13 +43,23 @@ export default function MoodOptions() {
         }
     }
 
+   /*  const handleMouseEvent = (e:MouseEvent) => {
+      e.preventDefault()
+      const stickyButton = document.querySelector<HTMLElement>("#sticky")
+          let x = e.pageX
+          let y = e.pageY
+          //@ts-ignore
+          stickyButton.style.top = y + "px"
+          //@ts-ignore
+          stickyButton.style.left = x + "px"
+    } */
+
 
   return (
     <>
-      {!showModal ? ({/* <div className="z-50 fixed top-30 shadow animate-ping backdrop-blur-2xl bg-orange/50 rounded-full h-28 w-28 mr-10 p-4 self-end xs:max-sm:top-24 xs:max-sm:h-24 xs:max-sm:w-24 xs:max-sm:text-sm xs:max-sm:mr-2 hover:cursor-pointer hover:bg-orange/90 hover:shadow-xl"></div> */}&&<button id="sticky" className="z-40 fixed top-40 shadow whitespace-pre-line bg-orange/100 text-white rounded-full h-28 w-28 mr-10 p-4 self-end xs:max-sm:top-24 xs:max-sm:h-24 xs:max-sm:w-24 xs:max-sm:text-sm xs:max-sm:mr-2 hover:cursor-pointer hover:bg-orange/90 hover:shadow-xl"  onClick={() => setShowModal(true)}>
+      {!showModal ? (<button id="sticky" className="z-40 fixed top-40 shadow whitespace-pre-line bg-orange/95 text-white rounded-full h-28 w-28 mr-10 p-4 self-end xs:max-sm:top-24 xs:max-sm:h-24 xs:max-sm:w-24 xs:max-sm:text-sm xs:max-sm:mr-2 hover:cursor-pointer hover:bg-orange/100 hover:animate-liquid hover:shadow-xl"  onClick={() => setShowModal(true)}>
         How is <br></br>your mood?
-      </button>
-      ): null}
+      </button>): null}
       <div className="flex z-80 md:flex-col justify-center items-center px-24 sticky top-28 sm:mt-1 sm:w-full sm:px-2 xs:max-sm:top-16 xs:max-sm:-mt-11 xs:max-sm:px-2">
        {showModal ? (<div className="bg-dark-grey/90 mt-10 sm:mt-2 xs:mt-1 text-thin rounded-md m-auto ">
           <h1 className="text-2xl font-sans tracking-wide italic font-thin text-white whitespace-pre-line m-10 mt-12 sm:max-md:text-xl xs:max-sm:text-lg xs:max-sm:font-thin xs:max-sm:m-6">Pick your mood to get the right playlist!</h1>
@@ -59,7 +69,7 @@ export default function MoodOptions() {
                     return (
                         <>
                         <div className="flex">
-                            <li className="self-start mb-3 font-thin xs:text-md"><button className="border border-dark-grey me-auto text-dirty-white bg-dark-grey rounded-full mr-2 px-2 mb-3 hover:bg-dark-grey hover:text-dirty-white hover:px-3" onClick= {() =>{
+                            <li className="self-start mb-3 font-thin xs:text-md"><button className="border border-dark-grey me-auto text-dirty-white bg-dark-grey rounded-full mr-2 px-2 mb-3 hover:bg-dark-grey hover:text-dirty-white  hover:font-semibold hover:px-3" onClick= {() =>{
                               handleClick(mood.spotify_id)
                               setShowModal(false)
                               }}>&gt;</button> {mood.mood}

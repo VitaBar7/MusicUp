@@ -1,7 +1,7 @@
 import {createContext, useState, useEffect, PropsWithChildren, useContext} from 'react'
 import { AuthContext } from "@component/context"
 
-export type webPlayBackContextType = {
+type webPlayBackContextType = {
     player?: object,
     deviceId: string,
     is_paused: boolean,
@@ -33,13 +33,13 @@ export const WebPlayBackProvider = ({children}: PropsWithChildren) => {
             script.src = "https://sdk.scdn.co/spotify-player.js";
             script.async = true;
             document.body.appendChild(script);
-            //@ts-ignore
+
             window.onSpotifyWebPlaybackSDKReady = () => {
-                //@ts-ignore
+
                 const player = new window.Spotify.Player({
                     name: 'Web Playback SDK',
                     getOAuthToken: cb => { cb(userAccessToken); },
-                    volume: 0.2
+                    volume: 0.3
                 });
 
                 setPlayer(player);
