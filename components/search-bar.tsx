@@ -20,9 +20,7 @@ export const SearchSong = () => {
     const [isHidden, setIsHidden] = useState<string>("hidden")
     const router = useRouter()
 
-    const handleClick = () => {
-        console.log("click")
-        router.push(`http://localhost:3001/track-details?id={id}`)}
+    const handleClick = () => router.push(`http://localhost:3000/track-details?id={id}`)
 
    useEffect(() => {
     console.log(searchDropdownValue)
@@ -41,7 +39,7 @@ export const SearchSong = () => {
         //depending on search option getTracks or getArtist
         if(searchDropdownValue==="song"){
             getTracks(userAccessToken, searchInput)
-            .then(response => setTracks(response.tracks?.items))
+            .then(response => setTracks(response.tracks.items))
         } else {
             getArtist(userAccessToken, searchInput)
             .then((response) => setArtists(response.artists?.items))
@@ -49,6 +47,8 @@ export const SearchSong = () => {
     }
     //click on an artist and get albums
     const onArtistClick = (artistId:string|null) => { 
+        /* const clickedArtist: string|null
+        setArtistId(clickedArtist ? clickedArtist : null) */
         console.log(artistId)
         if(artistId) {   
         getAlbums(userAccessToken, artistId)
@@ -60,6 +60,10 @@ export const SearchSong = () => {
    /*  const handleVisibility = () => {
     } */
 
+   /*  let displayButton="hidden"
+    albums? displayButton="block":displayButton="hidden" */
+
+   /*  !albums?setIsHidden('hidden'):setIsHidden('block') */
     
     return (
         <>
@@ -97,23 +101,23 @@ export const SearchSong = () => {
                         <div className="flex flex-col text-white">
                             <div className="max-w-sm pb-2 bg-white border border-black rounded-sm p-1 shadow hover:border-pink-600" key={item.id}>
                                 <Link 
-                                href="http://localhost:3001/track-details?id=${item.id}" >
+                                href={`http://localhost:3000/track-details?id=${item.id}`} onClick={()=> handleClick} >
                                     <img
                                     className="relative rounded-md dark:drop-shadow-[0_0_0.3rem_#ffffff70]"
                                     src={item.album.images[0].url}
                                     alt="album image" 
                                     />
-                                
+                                <a href={`http://localhost:3000/track-details?id=${item.id}`}>
                                     <h5 className="text-left text-sm text-gray-600 font-mono ml-1 mt-1 tracking-tight leading-5">{item.name}</h5>
-                                
+                                </a>
                                 </Link>
                             </div>
                             <div className="p-1 pt-2">
-                                <p className="text-left text-md hover:italic">
+                                <p className="text-left text-md hover:text-gray-400">
                                     {item.album.artists[0].name}
                                 </p>
-                                <p className="font-thin tracking-wide text-xs text-left">
-                                    <span className="font-normal"> Album: </span>{item.album.name}
+                                <p className="d tracking-tight font-mono  text-xs text-left">
+                                    <span className="font-normal"> album: </span>{item.album.name}
                                 </p>
                             </div>
 

@@ -30,14 +30,14 @@ export const TrackInfo = () => {
         }
         }, [trackId, userAccessToken])
 
-    useEffect(() => { 
-        console.log(trackDetails?.artists)
-        }, [trackDetails])
+        useEffect(() => { 
+                console.log(trackDetails)
+                }, [trackDetails])
 
     return (
         <>
             <div className="mt-6 mb-32 max-h-fit grid text-center lg:mb-0 lg:grid-cols-1 lg:text-left">
-                <div className="group rounded-sm border border-transparent mx-1 px-3 py-2 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:text-black" key= {trackId}>
+                <div className="group rounded-sm border border-transparent mx-1 px-3 py-2 transition-colors hover:border-gray-300 hover:bg-gray-100" key= {trackId}>
                     <img
                         className="rounded-sm relative dark:drop-shadow-[0_0_0.3rem_#ffffff70]"
                         src={trackDetails?.album?.images[0].url}
@@ -50,9 +50,9 @@ export const TrackInfo = () => {
                     <p className= "m-0 mb-2 max-w-5xl text-md opacity-50">
                         album: {trackDetails?.album?.name} 
                     </p>
-                    <a href={trackDetails?.artists[0]?.external_urls.spotify} target="_blank" rel="noopener noreferrer">
+                    <a href={trackDetails?.artists[0].external_urls.spotify} target="_blank" rel="noopener noreferrer">
                         <p className= "m-0 mb-2 max-w-5xl text-xl font-semibold opacity-100 hover:italic">
-                           by {trackDetails?.artists[0]?.name} 
+                           by {trackDetails?.artists[0].name} 
                         </p>
                     </a>
 
