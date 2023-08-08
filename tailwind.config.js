@@ -10,6 +10,7 @@ module.exports = {
   ],
   theme: {
     screens: {
+      
       'xs': '360px',
       ...defaultTheme.screens,
     },
@@ -34,26 +35,13 @@ module.exports = {
       'charbon':'#060606'
     },
     extend: {
-      animation: {
-        liquid: 'liquid 12s ease-in-out alternate infinite',
-        wobble: 'wobble 8s ease-in-out alternate infinite'
-      },
-      keyframes: {
-        liquid: {
-          '0%': { borderRadius: '60% 40% 30% 70% / 60% 30% 70% 40%', backgroundSize: '100% 100%' },
-          '50%': { borderRadius: '30% 60% 70% 40% / 50% 60% 30% 60%', backgroundSize: '300% 150%' },
-          '100%': { borderRadius: '60% 30% 70% 40% / 60% 40% 30% 70%'}
-        },
-        wobble: {
-          '50%': { borderRadius: '750px 550px 350px 750px / 350px 750px 550px 450px'
-          },
-          '100%': { borderRadius: '750px 250px 750px 250px / 250px 750px 250px 750px'
-          }
-        }
-      },
+      
       backgroundImage: {
         'album-playing' : "url('/images/pexels-anton-album.jpg')",
         'close-icon' : "url('/images/icons8-effacer-24.png')"
+        /* 'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        'gradient-conic':
+          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))', */
       },
     },
   },
