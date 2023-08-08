@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <>
     <Head>
-        <title>songSeeker</title>
+        <title>Look up!</title>
     </Head>
     <main className="flex min-h-screen w-full flex-col items-center justify-between py-20 px-24 sm:px-8 xs:max-sm:px-4 xs:max-sm:w-full">
       <Navbar></Navbar>
@@ -22,13 +22,12 @@ export default function Home() {
       <SearchSong />
       
       {(current_track && player) ? 
-      <div className="w-1/2 self-start xs:max-sm:w-3/4 xs:max-sm:-mt-28 xs:max-sm:self-center">
-        <WebPlayBackSpotify></WebPlayBackSpotify>
-      </div>
+
+      <WebPlayBackSpotify></WebPlayBackSpotify>
       :
       <AboutThis/>}
       <LastTracks/> 
-     { current_track && player && <WebPlayBackSpotify/>}
+     {/* { current_track && player && <WebPlayBackSpotify/>} */}
       
     </main>
     </>

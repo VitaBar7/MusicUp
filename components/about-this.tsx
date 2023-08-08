@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 export default function AboutThis() {
     return (
-        <div className="w-2/3 mt-28 mb-18 grid grid-cols-1 self-center text-center align-middle xs:max-sm:w-full xs:max-sm:mb-24 xs:max-sm:mt-1">
+        <div className="w-2/3 mt-28 mb-20 grid grid-cols-1 self-center text-center align-middle xs:max-sm:w-full xs:max-sm:mb-24 xs:max-sm:mt-3">
             <Link
             href="/about"
             className="group rounded-lg backdrop-blur-2xl border border-transparent mx-1 px-5 py-4 transition-colors hover:border-gray-300 hover:bg-black hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"

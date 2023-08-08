@@ -33,14 +33,6 @@ export const SearchSong = () => {
     const router = useRouter()
 
     
-   useEffect(() => {
-    console.log(artistId)
-    }, [artistId])
-
-    useEffect(() => {   
-        console.log(albums)
-    }, [albums])
-
     
     
     //save last tracks in last_tracks table in db: 
@@ -72,6 +64,14 @@ export const SearchSong = () => {
         saveUser(userId)}
         router.push(`http://localhost:3000/track-details?id=${item.id}`)}
 
+
+   useEffect(() => {
+    console.log(artistId)
+    }, [artistId])
+
+    useEffect(() => {   
+        console.log(albums)
+    }, [albums])
 
     //Search
     const search = async () => {
@@ -125,7 +125,7 @@ export const SearchSong = () => {
         </div>
         {(!artists.length && !albums.length && !tracks?.length) ? <MoodOptions/>:null}
         
-        <section className= "grid mb-10 text-center backdrop-blur-2xl xs:grid-cols-2 xs:max-sm:gap-6 sm:gap-6 xs:max-sm:mt-8 sm:grid-cols-3 md:grid-cols-4 md:gap-6 lg:mb-0 lg:grid-cols-5 xl:grid-cols-6 lg:gap-8" >
+        <section className= "grid mb-10 text-center backdrop-blur-2xl xs:grid-cols-2 xs:max-sm:gap-6 sm:gap-6 xs:max-sm:mt-10 sm:grid-cols-3 md:grid-cols-4 md:gap-6 lg:mb-0 lg:grid-cols-5 xl:grid-cols-6 lg:gap-8" >
             {tracks && <h2 className="text-white">search results</h2>&&(
                 tracks?.map(item => {
                     return(
