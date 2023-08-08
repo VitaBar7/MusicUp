@@ -11,7 +11,7 @@ import MoodOptions from './mood-options'
 import BackButton from './back-button'
 
 
-const placeholderImage = '/pexels-profile-771742.png'
+const placeholderImage = '/cartoon-grey-ghost-20103.png'
 
 const CLIENT_ID = "0e7d7413b7494383814e036c1d527467"
 const REDIRECT_URI = "http://localhost:3000"
@@ -98,11 +98,11 @@ export const SearchSong = () => {
     
     return (
         <>
-        <div className="flex flex-row mb-6 relative top-2 z-12 w-full max-w-5xl font-sans text-lg sm:flex lg:flex xs:max-sm:flex-col">
+        <div className="flex flex-row mb-6 relative top-1 z-12 w-full max-w-5xl font-sans text-lg sm:flex lg:flex xs:max-sm:flex-col">
             <Dropdown onChange={setDropdownValue}/>
-            <div className="mt-1.5 xs:max-sm:mt-0">
+            <div className="mt-[2px] xs:max-sm:mt-0">
                 <input
-                    className="rounded-sm max-h-8 mr-2 px-2 py-1 text-sm !text-dark-grey italic"
+                    className="rounded-md max-h-8 mr-2 px-2 py-1 text-sm !text-dark-grey italic xs:max-sm:text-xs"
                     placeholder="write it here"
                     onKeyDown={event => { if (event.key == 'Enter'){
                         search()
@@ -117,7 +117,7 @@ export const SearchSong = () => {
                         setSearchInput(event.target.value)
                     }}
                 />
-                <button className="rounded-sm mt-2 max-h-8 text-white px-2 hover:italic" 
+                <button className="rounded-sm mt-1 max-h-8 text-white px-2 hover:italic" 
                 onClick={search}>
                     Go!
                 </button>

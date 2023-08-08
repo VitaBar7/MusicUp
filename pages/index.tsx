@@ -5,6 +5,7 @@ import SearchSong from '@component/components/search-bar'
 import  LastTracks from '@component/components/last-tracks'
 import AboutThis from '../components/about-this'
 import WebPlayBackSpotify from "@component/components/web-play-back-spotify";
+import MiniWebPlayBackSpotify from "@component/components/mini-player";
 import { useContext } from 'react'
 import { WebPlayBackContext } from '@component/context'
 
@@ -23,10 +24,11 @@ export default function Home() {
       
       {(current_track && player) ? 
       <div className="w-3/4 self-start xs:max-sm:w-3/4 xs:max-sm:-mt-28 xs:max-sm:self-center xs:max-sm:mb-6">
-        <WebPlayBackSpotify></WebPlayBackSpotify>
+        <MiniWebPlayBackSpotify></MiniWebPlayBackSpotify>
       </div>
       :
-      <AboutThis/>}
+        <AboutThis/>
+      }
       <LastTracks/> 
      { current_track && player && <WebPlayBackSpotify/>}
       
