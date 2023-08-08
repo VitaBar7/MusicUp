@@ -1,6 +1,4 @@
 /** @type {import('tailwindcss').Config} */
-const defaultTheme = require('tailwindcss/defaultTheme')
-
 module.exports = {
   
   content: [
@@ -9,10 +7,6 @@ module.exports = {
     './app/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
-    screens: {
-      'xs': '400px',
-      ...defaultTheme.screens,
-    },
     fontFamily: {
       'sans': ['Droid Sans', 'ui-sans-serif', 'system-ui', ],
       'serif': ['ui-serif', 'Georgia'],
@@ -21,21 +15,19 @@ module.exports = {
       'body': ['"Open Sans"'],
     },
     colors: {
-      'white':'#ffffff',
+      
       'taupe': '#5E5252',
       'semidark-green': '#204d49d1',
       'dark-green':'#204d49fa',
       'magenta':'#e803fc',
-      'orange':'#FFA500',
-      'light-pink':'#f4c2c2',
       'dirty-white':'#f5f7f6',
-      'dark-grey':'#2e2e2c',
-      'charbon':'#060606'
+      'dark-grey':'2e2e2c',
+      'charbon':'060606'
     },
     extend: {
       
       backgroundImage: {
-        'album-playing' : "url('/pexels-anton-album.jpg')",
+        'album-playing' : 'url("https://images.pexels.com/photos/145707/pexels-photo-145707.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")',
         /* 'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))', */
