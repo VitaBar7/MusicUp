@@ -1,30 +1,30 @@
 import { supabase } from '@component/utils/supabaseClient';
-//import  { Database }  from '@component/lib/database.types'
-import  MoodOptions  from '@component/components/mood-options';
-import { useState } from "react"
+import  { Database }  from '@component/lib/database.types'
 
 
-export default function selectMood () {
-  const [playlist, setPlaylist] = useState([])
+export default function Page ({ playlists }) {
+  console.log({ playlists })
   return (
-    <MoodOptions/>
-  )
- 
+    <div className="bg-black text-white">
+      {playlists?.map((playlist) => (
+        <div key={playlist.id}>
+          <img className="rounded-full" src={playlist.image} alt={`playlist ${playlist.id}`} style={{ width:"100", height:"100"}}/>
+          <p className='font-mono tracking-wide text-sm italic'>
+          playlist id: {playlist.spotify_id}, the mood is: {playlist.mood}
+          </p>
+        </div>
+        
+        ))}
+    </div>
+  );
 }
 
-//<h1>your mood is {mood}, this is your playlist for today:<h1>
-    {/* <div key={playlist.id}>
-      <img className="rounded-full" src={playlist.image} alt={`playlist ${playlist.id}`} style={{ width:"100", height:"100"}}/>
-      <p className='font-mono tracking-wide text-sm italic'>
-      playlist id: {playlist.spotify_id}, the mood is: {playlist.mood}
-      </p>
-    </div>
- */}
-export async function showPlaylist() {
+
+
+export async function getServerSideProps() {
   let { data } = await supabase
-    .from('playlists')
-    .eq('mood' , {mood})
-    .select(spotify_id)
+    .from("playlists")
+    .select()
   return {
     props: {
       playlists: data
@@ -34,25 +34,6 @@ export async function showPlaylist() {
 
 
 
-
- /* return (
-    <>
-      <h1 className="text-2xl m-10">How is your mood today?</h1>
-      <div className="bg-black text-white">
-        {playlists?.map((playlist) => (
-          <div key={playlist.id}>
-            <img className="rounded-full" src={playlist.image} alt={`playlist ${playlist.id}`} style={{ width:"100", height:"100"}}/>
-            <p className='font-mono tracking-wide text-sm italic'>
-            playlist id: {playlist.spotify_id}, the mood is: {playlist.mood}
-            </p>
-          </div>
-          
-          ))}
-      </div>
-    </>
-  ); */
-
- 
 
 /* export async function getMovies() {
   return await supabase.from('movies').select(`id, title`)
