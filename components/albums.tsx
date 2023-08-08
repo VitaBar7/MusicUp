@@ -20,7 +20,7 @@ export const Albums = () => {
             albums?.map(album => {
                 return(
                     <>
-                    <div className="max-w-sm mb-2 bg-white border border-black rounded-sm p-1 shadow dark:bg-gray-800 dark:border-gray-700 hover:border-pink-600">
+                    <div className="max-w-sm mb-2 bg-white border border-black rounded-sm p-1 shadow dark:bg-gray-800 dark:border-gray-700 hover:border-pink-600" key={album.id}>
                         <Link 
                         href={album.external_urls.spotify} onClick={()=>{}}>
                             <img
