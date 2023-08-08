@@ -13,6 +13,7 @@ export const Dropdown:React.FC<DropdownType> = ({onChange}) => {
             <label  className="block mb-2 text-sm leading-4 font-light text-gray-900 text-white dark:text-white tracking-wider">Search options</label>
             <select 
             id="selection" 
+            defaultValue= "song" 
             value={searchOption} 
             onChange={e => {
                 setSearchOption(e.currentTarget.value)

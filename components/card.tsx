@@ -12,14 +12,13 @@ export const HomeCard = () => {
     const router = useRouter()
 
     const handleClick = () => {
-        //console.log("click")
-      router.push(``)
+      router.push(`http://localhost:3000/track-details?id={id}`)
     }
     
     useEffect(() => {
       //if user is connected we can get tracks
       if (userAccessToken) {
-        getTracks(userAccessToken, 'hello')
+        getTracks(userAccessToken, 'hello, goodbye')
         .then(response => setTracks(response))
       }
       }, [userAccessToken])
@@ -33,29 +32,26 @@ export const HomeCard = () => {
             tracks?.tracks.items.map(item => {
                 return(
                     <>
-                    <div className="max-w-sm mb-2 bg-black text-white border border-black rounded-sm p-1 shadow hover:border-pink-600">
+                    <div className="max-w-sm mb-2 bg-black text-white border border-black rounded-sm p-1 shadow dark:bg-gray-800 dark:border-gray-700 hover:border-pink-600" key={item.id}>
                         <Link 
-                        href={`http://localhost:3001/track-details?id=${item.id}`} onClick={()=>{}} >
+                        href={`http://localhost:3000/track-details?id=${item.id}`} onClick={()=> handleClick} >
                             <img
                             className="relative rounded-md dark:drop-shadow-[0_0_0.3rem_#ffffff70]"
                             src={item.album.images[0].url}
                             alt="album image"
-                            key={item.id}
                             />
                         </Link>
                         <div className="p-3">
-                            <a href={`http://localhost:3001/track-details?id=${item.id}`}>
-                                <h5 className="text-left text-2xl tracking-wider text-white">{item.name}</h5>
+                            <a href={`http://localhost:3000/track-details?id=${item.id}`}>
+                                <h5 className="text-left text-2xl tracking-wider text-white dark:text-white">{item.name}</h5>
                             </a>
-                            <a href={`http://localhost:3000/track-details?id=${item.id}`}> 
-                                <p className="text-left text-xl text-gray-300">
-                                    {item.album.artists[0].name}
-                                </p>
-                            </a>
-                            <p className="font-normal text-sm text-left text-gray-400">
+                            <p className="text-left text-xl text-gray-300 dark:text-gray-700">
+                                {item.album.artists[0].name}
+                            </p>
+                            <p className="font-normal text-sm text-left text-gray-400 dark:text-gray-400">
                                 album: {item.album.name}
                             </p>
-                            {/* <p className="mb-3 font-normal text-xs text-left text-gray-400">
+                            {/* <p className="mb-3 font-normal text-xs text-left text-gray-400 dark:text-gray-400">
                                 {item.id}
                             </p> */}
                         </div>
