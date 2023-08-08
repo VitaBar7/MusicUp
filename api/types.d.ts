@@ -14,18 +14,6 @@ export type GetUserInfoResponse = {
 
 } 
 
-export type GetAlbumInfo = {
-  items: {
-    artists: {
-      name: string, 
-      href:string
-    },
-    name:string,
-    id:string,
-    track_number:integer 
-  }
-}
-
 export type Item = 
 {
     album: {
@@ -64,11 +52,7 @@ export type GetTrack = {
     spotify: string
   },
   artists: Artists[],
-  uri: string,
-  id: string,
-  label: string,
-  genre: string[],
-  album_groupe: string
+  uri: string
 }
 
 export type Album = {

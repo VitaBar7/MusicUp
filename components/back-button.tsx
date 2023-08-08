@@ -1,18 +1,17 @@
-import { useRouter } from "next/navigation"
+import router from "next/router"
 
 
-export const BackButton = () => {
-    const router = useRouter() 
+export const backButton = () => {
+    
     return (
-    <>
-    <button 
-    className={`self-start mb-2 ml-2 backdrop-blur-2xl rounded-full font-light flex text-white text-xl hover:italic`} type="button"  
-    onClick={() => router.refresh()}>
-        <span className="inline-block mr-2 transition-transform group hover:-translate-x-1 motion-reduce:transform-none">&lt;</span>{' '}Back
-    </button>
-    </>
-    )   
+        <div className="z-10 w-full mt-20 max-w-5xl items-center justify-between font-sans text-lg sm:flex lg:flex">
+            <button className="left-1 -ml-12 mt-1 mb-10 flex text-white hover:italic xs:max-sm:ml-0" type="button" onClick={() => router.back()}>
+              <span className="inline-block transition-transform group hover:-translate-x-1 motion-reduce:transform-none mr-1">
+              &lt;</span>{' '} Back
+            </button>
+        </div>
+    )
 
 }
 
-export default BackButton
+export default backButton
