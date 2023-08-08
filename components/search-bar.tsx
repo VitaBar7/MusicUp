@@ -153,7 +153,7 @@ export const SearchSong = () => {
                             </div>
                             <div className="p-2">
                                 <a href="" onClick={()=>{}}>
-                                    <h5 className=" text-lg text-center font-light italic tracking-wider text-white dark:text-white">{artist.name}</h5>
+                                    <h5 className="text-left text-lg text-center font-light italic tracking-wider text-white dark:text-white">{artist.name}</h5>
                                 </a>
                                 {/* <a href={artist.external_urls.spotify}>
                                     <p className="text-left font-bold text-gray-700 dark:text-gray-400">
@@ -180,7 +180,7 @@ export const SearchSong = () => {
                 return(
                     <>
                     <div className="max-w-sm mb-2 bg-white text-dark-grey rounded-md p-1 shadow hover:border hover:border-deep-magenta">
-                        <a 
+                        <Link 
                         href={album.external_urls.spotify} onClick={()=>{}}
                         target='_blank'
                         rel="noopener noreferrer">
@@ -189,7 +189,7 @@ export const SearchSong = () => {
                             src={album?.images[0]?.url}
                             alt="album image"
                             />
-                        </a>
+                        </Link>
                         <div className="p-1 pt-2">
                             <a href={album.external_urls.spotify} target='_blank' rel="noopener noreferrer">
                                 <h5 className="text-left text-xl font-semibold leading-5 tracking-tight text-dark-grey">{album.name}</h5>

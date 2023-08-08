@@ -9,9 +9,7 @@ export const metadata = {
 export default function Document() {
   return (
     <Html lang="en">
-      <Head>
-        <title>Look up!</title>
-      </Head>
+      <Head title="Look up!"/>
       <body>
         <Main />
         <NextScript />
