@@ -43,7 +43,8 @@ export default function LastTracks () {
       }
     }
 
-    getUserTracks(userId) 
+    getUserTracks(userId)
+    
   }, [userId])
 
 
