@@ -36,7 +36,7 @@ module.exports = {
     extend: {
       animation: {
         liquid: 'liquid 12s ease-in-out alternate infinite',
-        wobble: 'wobble 8s ease-in-out alternate infinite'
+        wobble: 'wobble 2s ease-in-out alternate infinite'
       },
       keyframes: {
         liquid: {
