@@ -20,9 +20,7 @@ export default function AboutThis() {
             <p className={`m-0 italic text-sm font-thin whitespace-pre-line tracking-wider text-white opacity-80 xs:max-sm:text-xs`}>
                 This is a site about music. 
                 <br></br>
-                <span className="font-light xs:max-sm:font-normal">
                 Log in with your spotify account, look up for a song or an artist you're curious about or would like to listen to. 
-                </span> 
                 <br></br>
                 See the lyrics, some info and enjoy!
             </p>

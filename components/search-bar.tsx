@@ -160,7 +160,7 @@ export const SearchSong = () => {
         (<BackButton/>): null}
         {artists && (
             
-        <div className= "grid text-center backdrop-blur-2xl xs:max-sm:grid-cols-3 xs:max-sm:gap-6 sm:grid-cols-3 md:grid-cols-4 md:gap-6 lg:mb-0 lg:grid-cols-6 lg:gap-8 lg:text-left hover:drop-shadow-[0_0_0.3rem_#ffffff" >
+        <div className= "grid text-center backdrop-blur-2xl xs:max-sm:grid-cols-3 xs:max-sm:gap-6 sm:grid-cols-3 md:grid-cols-4 md:gap-6 lg:mb-0 lg:grid-cols-6 xl:grid-cols-8 lg:gap-6 lg:text-left hover:drop-shadow-[0_0_0.3rem_#ffffff" >
                 {artists?.map(artist => {
                     return(
                         <>
@@ -175,7 +175,7 @@ export const SearchSong = () => {
                             </div>
                             <div className="p-2">
                                 <a href={artist.external_urls.spotify} onClick={()=>{}}>
-                                    <h5 className=" text-md text-center font-light italic tracking-wider text-white dark:text-white">{artist.name}</h5>
+                                    <h5 className=" text-sm text-center font-light hover:italic tracking-wider text-white dark:text-white">{artist.name}</h5>
                                 </a>
                                 
                             </div>

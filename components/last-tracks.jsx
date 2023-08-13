@@ -70,11 +70,11 @@ export default function LastTracks () {
         {(userTracks!==null && isUserAuthenticated)? (
           
           <h2 className="self-start backdrop-blur-2xl z-[9999] xl:top-[80px] lg:top-[80px] text-xl mt-6 pl-2 lg:text-xl lg:mt- md:self-start md:mt-10 ml-2 md:ml-0 md:top-[84px] sm:text-2xl sm:self-center sm:top-[84px] xs:text-md xs:max-sm:top-[46px] xs:max-sm:mt-4 xs:max-sm:mb-24 xs:self-start xs:text-[1.3rem] tracking-wider text-white">Recently viewed by you:</h2> )&&
-          (<div className = "user-tracks grid relative rounded-md mt-10 text-center backdrop-blur-2xl xs:grid-cols-3 sm:grid-cols-4 sm:gap-6 md:grid-cols-5 md:gap-6 lg:grid-cols-6 lg:gap-6 lg:text-left xl:grid-cols-7 xl:gap-8 xs:max-sm:gap-4 xs:max-sm:p-4 xs:max-sm:-mt-20 xs:max-sm:mb-12">
+          (<div className = "user-tracks grid relative rounded-md mt-10 pt-2 text-center backdrop-blur-2xl xs:grid-cols-3 sm:grid-cols-4 sm:gap-2 md:grid-cols-6 md:gap-3 lg:grid-cols-8 lg:gap-4 lg:text-left xl:grid-cols-10 xl:gap-4 xs:max-sm:gap-4 xs:max-sm:p-1 xs:max-sm:-mt-20 xs:max-sm:mb-12">
             {userTracks.map((item) => {
               return (
                 <>
-                  <div className="text-white rounded-md backdrop-blur-2xl p-1 pb-1 shadow hover:cursor:pointer hover:border hover:border-taupe hover:drop-shadow-xl">
+                  <div className="text-white rounded-md backdrop-blur-2xl p-1 shadow hover:cursor:pointer hover:border hover:border-taupe hover:drop-shadow-xl">
                     <Link 
                         href={`track-details?id=${item.spotify_id}`} onClick={() => {}} >
                         <img
@@ -82,7 +82,7 @@ export default function LastTracks () {
                         src={item.image}
                         alt="album image"
                         />
-                      <p className="text-xs xs:max-sm:leading-3 text-center font-light tracking-wide mt-2 sm:text-center xs:max-sm:text-[10px]" key={item.id}>{item.title}
+                      <p className="text-[12px] leading-[14px] xs:max-sm:leading-3 text-center font-light tracking-wide mt-2 sm:text-center xs:max-sm:text-[10px]" key={item.id}>{item.title}
                       <span className="not-italic font-thin"> by {item.artist_name}</span></p>
                     </Link>
                   </div>

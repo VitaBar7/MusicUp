@@ -31,7 +31,8 @@ module.exports = {
       'light-pink':'#f4c2c2',
       'dirty-white':'#f5f7f6',
       'dark-grey':'#2e2e2c',
-      'charbon':'#060606'
+      'charbon':'#060606',
+      'bright-pink':'#FF007F'
     },
     extend: {
       animation: {
@@ -57,6 +58,7 @@ module.exports = {
         'heart-icon' : "url('/icons8-heart-24.png')",
         'heart-filled' : "url('/icons8-heart-filled-24.png')"
       },
+      
     },
   },
   plugins: [],

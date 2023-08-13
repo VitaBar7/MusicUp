@@ -30,7 +30,7 @@ export default function Navbar() {
             </Link> */}
             <Link href='/'>
                 <Image className="rounded-full ml-3 xs:max-sm:hidden hover:shadow-xl" src={'/images/songseekr-vinyl-left.png'} alt={''} width={180} height={36}/>
-                <Image className="hidden rounded-full ml-1 xs:max-sm:block" src={'/images/songseeker-white.png'} alt={''} width={150} height={30}/>    
+                <Image className="hidden rounded-full w-2/3 ml-1 xs:max-sm:block" src={'/images/songseeker-white.png'} alt={''} width={150} height={30}/>    
             </Link>
             <div className="flex flex-col">
                 <ul className="flex order-last flex-row flex-end gap-6 text-white mt-4 mr-10 xs:max-sm:mr-4 xs:max-sm:gap-4 xs:max-sm:text-sm hover:text-dirty-white">
