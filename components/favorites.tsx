@@ -49,8 +49,8 @@ export default function Favorites () {
           {(favorites!==null && isUserAuthenticated)? 
           <>
           
-          <h2 className="z-10 relative text-xl mt-10 pl-2 lg:text-xl lg:mt- md:self-start md:mt-10 ml-2 md:ml-0  sm:text-2xl sm:self-center  xs:text-md xs:max-sm:mt-4 xs:max-sm:mb-24 xs:self-start xs:text-[1.3rem] tracking-wider text-white">Favorites:</h2>
-          <div className = "favorites grid relative rounded-md mt-4 text-center backdrop-blur-2xl xs:grid-cols-2 sm:grid-cols-3 sm:gap-6 md:grid-cols-4 md:gap-6  lg:grid-cols-5 lg:gap-6 lg:text-left xl:grid-cols-6 xl:gap-8 xs:max-sm:gap-6 xs:max-sm:p-4 xs:max-sm:-mt-20 xs:max-sm:mb-12">
+          <h2 className="z-10 relative text-xl mt-10 pl-2 lg:text-xl lg:mt- md:self-start md:mt-10 ml-2 md:ml-0  sm:text-2xl sm:self-center xs:max-sm:mt-4 xs:max-sm:mb-20 xs:self-start xs:text-[1.1rem] tracking-wider text-white">Your favorites:</h2>
+          <div className = "favorites grid relative rounded-md mt-4 text-center backdrop-blur-2xl xs:grid-cols-3 sm:grid-cols-3 sm:gap-6 md:grid-cols-4 md:gap-6  lg:grid-cols-5 lg:gap-6 lg:text-left xl:grid-cols-6 xl:gap-8 xs:max-sm:gap-6 xs:max-sm:p-4 xs:max-sm:-mt-20 xs:max-sm:mb-12">
             {favorites?.map((item) => {
               return (
                 <>

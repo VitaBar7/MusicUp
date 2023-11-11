@@ -8,7 +8,7 @@ const MiniWebPlayBackSpotify: React.FC = () => {
     return (
         <>
             {current_track !== undefined &&
-                <div className="mb-10 mt-12 w-1/6 grid xs:max-sm:mt-20 xs:max-sm:w-1/3 xs:max-sm:mb-24">
+                <div className="mb-10 mt-12 w-1/6 xl:1/12 grid xs:max-sm:mt-20 xs:max-md:w-1/3 xs:max-sm:mb-24">
                     <div className="self-start z-[9999] rounded-xl ">
                         {/* <p className="text-left ml-1 font-thin tracking-wider xs:max-sm:text-sm"> Now playing:</p> */}
                         <div className="player_wrapper border rounded-xl flex flex-col justify-between p-1 xs:max-sm:flex-row">

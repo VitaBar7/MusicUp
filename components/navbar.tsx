@@ -25,19 +25,17 @@ export default function Navbar() {
     return (
         <>
         <div className="z-10 fixed whitespace-pre-wrap flex left-0 top-0 w-full items-center justify-between border-b border-gray-300 from-zinc-200 py-1 xs:max-sm:py-1 backdrop-blur-2xl">
-            {/* <Link href='/'>
-                <h1 className="flex ml-6 font-medium text-white text-4xl tracking-wider xs:max-sm:text-2xl xs:max-sm:ml-2 xs:max-sm:leading-6 ">SongSeeker </h1>
-            </Link> */}
+            
             <Link href='/'>
-                <Image className="rounded-full ml-3 xs:max-sm:hidden hover:shadow-xl" src={'/images/songseekr-vinyl-left.png'} alt={''} width={180} height={36}/>
+                <Image className="ml-3 xs:max-sm:hidden rounded-full hover:" src={'/images/songseekr-vinyl-left.png'} alt={''} width={210} height={36}/>
                 <Image className="hidden rounded-full w-2/3 ml-1 xs:max-sm:block" src={'/images/songseeker-white.png'} alt={''} width={150} height={30}/>    
             </Link>
             <div className="flex flex-col">
                 <ul className="flex order-last flex-row flex-end gap-6 text-white mt-4 mr-10 xs:max-sm:mr-4 xs:max-sm:gap-4 xs:max-sm:text-sm hover:text-dirty-white">
+                    <Link href='/'><li className="mt-1 hover:scale-110 xs:max-sm:mt-0"><img src="/icons8-home-48.png" width="24px" height="auto"/></li></Link>
                     <Link href='/about'><li>About</li></Link>
                     <Link href="/blog"><li>Blog</li></Link>
                     <Link className="mt-1 hover:scale-110 xs:max-sm:mt-0" href='/favorites'><li><img src="/icons8-heart-filled-24.png"></img></li></Link>
-                    <Link href='/'><li className="mt-1 hover:scale-110 xs:max-sm:mt-0"><img src="/icons8-home-48.png" width="24px" height="auto"/></li></Link>
                 </ul> 
                 <ul className="flex flex-row justify-around xs:max-sm:mr-0"> 
                     {isUserAuthenticated && <li className="font-thin mt-1"> <span className="font-light">{userDisplayName}</span></li>}

@@ -43,7 +43,7 @@ export const SearchSong = () => {
 
     
     
-    //save last tracks in last_tracks table in db: 
+    //save tracks in last_tracks table in db: 
     const saveTracks = async (item: Item, userId:string) => {     
         const { error } = await supabase
         .from('last_tracks')

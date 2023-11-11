@@ -15,12 +15,12 @@ export default function TrackDetails() {
   return (
     <>
       <Head>
-        <title>Look up! - track details</title>
+        <title>SongSeeker - track details</title>
       </Head>
       <main className="flex min-h-screen md:px-24 lg:px-28 xl:px-32 2xl:px-36 py-4 flex-col items-center xs:px-2">
       <Navbar></Navbar>
         <div className="z-10 w-full mt-20 max-w-5xl items-center justify-between font-sans text-lg sm:flex lg:flex">
-            <button className="left-1 -ml-12 mt-1 mb-8 flex text-white hover:italic xs:max-sm:ml-0" type="button" onClick={() => router.back()}>
+            <button className="left-1 -ml-12 mt-1 mb-6 flex text-white hover:italic xs:max-sm:ml-0 xl:m-0 xl:-mt-2" type="button" onClick={() => router.back()}>
               <span className="inline-block transition-transform group hover:-translate-x-1 motion-reduce:transform-none mr-1">
               &lt;</span>{' '} Back
             </button>

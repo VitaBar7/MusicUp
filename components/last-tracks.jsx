@@ -67,10 +67,10 @@ export default function LastTracks () {
   return (
     <>
         {fetchError && (<p>{fetchError}</p>)}
-        {(userTracks!==null && isUserAuthenticated)? (
-          
-          <h2 className="self-start backdrop-blur-2xl z-[9999] xl:top-[80px] lg:top-[80px] text-xl mt-6 pl-2 lg:text-xl lg:mt- md:self-start md:mt-10 ml-2 md:ml-0 md:top-[84px] sm:text-2xl sm:self-center sm:top-[84px] xs:text-md xs:max-sm:top-[46px] xs:max-sm:mt-4 xs:max-sm:mb-24 xs:self-start xs:text-[1.3rem] tracking-wider text-white">Recently viewed by you:</h2> )&&
-          (<div className = "user-tracks grid relative rounded-md mt-10 pt-2 text-center backdrop-blur-2xl xs:grid-cols-3 sm:grid-cols-4 sm:gap-2 md:grid-cols-6 md:gap-3 lg:grid-cols-8 lg:gap-4 lg:text-left xl:grid-cols-10 xl:gap-4 xs:max-sm:gap-4 xs:max-sm:p-1 xs:max-sm:-mt-20 xs:max-sm:mb-12">
+        {(userTracks!==null && isUserAuthenticated)? 
+          <>
+          <h2 className="self-start z-[9999] text-lg lg:mt-6 md:self-start md:mt-10 ml-2 md:ml-0 xs:self-start xs:max-sm:hidden tracking-wider text-white">Recent tracks:</h2> 
+          <div className = "user-tracks grid relative rounded-md mt-2 pt-2 text-center backdrop-blur-2xl xs:grid-cols-3 sm:grid-cols-4 sm:gap-2 md:grid-cols-6 md:gap-3 lg:grid-cols-8 lg:gap-4 lg:text-left xl:grid-cols-10 xl:gap-4 xs:max-sm:gap-4 xs:max-sm:p-1 xs:max-sm:-mt-14 xs:max-sm:mb-12">
             {userTracks.map((item) => {
               return (
                 <>
@@ -91,7 +91,8 @@ export default function LastTracks () {
             })}
 
           </div>
-        ):null}
+          </>
+        :null}
     
     </>
   );

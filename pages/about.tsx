@@ -12,7 +12,7 @@ export default function About() {
         </Head>
         <main className="flex min-h-screen flex-col items-center justify-between py-20 px-24 sm:px-8 xs:max-sm:px-4 xs:max-sm:w-full">
             <Navbar></Navbar>
-            <div className="mt-16 mb-20 p-10 bg-dirty-white self-end rounded-lg  backdrop-blur-2xl text-center lg:mb-0 lg:text-left md:self-center xs:max-lg:self-center">
+            <div className="mt-16 max-h-screen mb-16 p-10 bg-dirty-white self-end rounded-lg text-center lg:mb-0 lg:text-left md:self-center xs:max-lg:self-center">
             
                 <h2 className={`mb-3 text-2xl text-dark-grey opacity-80`}>
                     About this site:

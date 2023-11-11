@@ -110,7 +110,7 @@ export const TrackInfo = () => {
     return (
         <>
             <div className="mb-12 max-h-fit grid text-center lg:mb-0 lg:grid-cols-2 md:grid-cols-2 xs:gap-y-4 lg:text-left xs:grid-cols-1">
-                <div className="grid rounded-md border-transparent grid-cols-1 mx-1 p-1 transition-colors hover:border-gray-300 bg-dirty-white text-dark-grey">
+                <div className="grid rounded-md  border-transparent grid-cols-1 mx-1 p-1 transition-colors hover:border-gray-300 bg-dirty-white text-dark-grey">
                     <img
                         className="rounded-sm relative dark:drop-shadow-[0_0_0.3rem_#ffffff70]"
                         src={trackDetails?.album?.images[0].url}
@@ -122,18 +122,20 @@ export const TrackInfo = () => {
                             handleClick()
                             }}><img src={heartFill} alt="heart"/></button>
                     </div>
-                    <div className="text-left">
+                    <div className="flex justify-between px-2 py-1 text-left -mt-6 xl:-mt-7">
                         <h2 className="mb-1 text-2xl md:text-xl sm:text-lg xs:text-md tracking-wider text-dark-grey">
                             {trackDetails?.name} 
                         </h2>
-                        <p className= "m-0  max-w-5xl text-dark-grey md:text-sm sm:text-xs xs:text-xs text-thin text-md opacity-70">
-                            album: {trackDetails?.album?.name}  
-                        </p>
-                        <a href={trackDetails?.artists[0]?.external_urls.spotify} target="_blank" rel="noopener noreferrer">
-                            <p className= "m-0 mb-2 max-w-5xl text-xl md:text-md sm:text-sm xs:text-xs text-thin tracking-wide text-dark-grey  opacity-80 hover:text-normal">
-                            by {trackDetails?.artists[0]?.name} 
+                        <div className="text-right">
+                            <a href={trackDetails?.artists[0]?.external_urls.spotify} target="_blank" rel="noopener noreferrer">
+                                <p className= "m-0 mb-2 max-w-5xl text-xl md:text-md sm:text-sm xs:text-xs font-light tracking-wide text-dark-grey  opacity-80 hover:text-normal">
+                                by {trackDetails?.artists[0]?.name} 
+                                </p>
+                            </a>
+                            <p className= "m-0 max-w-5xl text-dark-grey md:text-sm sm:text-xs xs:text-xs font-thin text-md opacity-70">
+                                album : {trackDetails?.album?.name}  
                             </p>
-                        </a>
+                        </div>
 
                     </div>
                     <button className="absolute m-2 flex justify-center items-center focus:outline-none focus-visible:ring focus-visible:ring-indigo-300 rounded-3xl group hover:" onClick={ startTrack }>

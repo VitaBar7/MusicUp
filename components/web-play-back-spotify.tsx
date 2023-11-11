@@ -10,7 +10,7 @@ const WebPlayBackSpotify: React.FC = () => {
             {current_track !== undefined &&
                 <div className="mb-14 mt-12 w-3/4 grid mx-auto lg:mt-12 xs:max-sm:w-full xs:max-sm:mb-10 ">
                     <div className="container mx-auto z-[9999] rounded-xl xs:max-sm:mb-12">
-                        <p className="text-left mt-20 ml-2 font-thin tracking-wider xs:max-sm:mt-14"> Currently playing :</p>
+                        <p className="text-left mt-2 ml-2 font-thin tracking-wider xs:max-sm:mt-14"> Currently playing :</p>
                         <div className="main-wrapper border rounded-xl mx-h-10 flex flex-row justify-between backdrop-blur-2xl  py-4 px-5 xs:max-sm:p-2 xs:max-sm:">
                             <div className="w-1/5 xs:max-sm:w-1/3 content-center">
                                 <img src={current_track?.album.images[0].url}
@@ -27,7 +27,7 @@ const WebPlayBackSpotify: React.FC = () => {
                                     }</p>
                                 </div>
                                 <div className="player__buttons flex justify-around">
-                                    <button className="text-xs" onClick={() => {
+                                    <button className="text-xs xs:max-sm:text-[12px]" onClick={() => {
                                         player?.previousTrack()
                                     }}>
                                         <span 
@@ -36,13 +36,13 @@ const WebPlayBackSpotify: React.FC = () => {
                                         Previous 
                                     </button>
 
-                                    <button className="font-light text-md bg-dark-grey tracking-wider rounded-full py-3 px-5 xs:max-sm:lowercase xs:text-xs xs:max-sm:p-2 over:opacity-80" onClick={() => {
+                                    <button className="font-light text-md bg-dark-grey tracking-wider rounded-full py-3 px-5 xs:max-sm:lowercase xs:text-[12px] xs:max-sm:p-2 hover:opacity-80" onClick={() => {
                                         player?.togglePlay()
                                     }}>
                                         {is_paused ? "PLAY" : "PAUSE"}
                                     </button>
 
-                                    <button className="text-xs" onClick={() => {
+                                    <button className="text-xs xs:max-sm:text-[12px]" onClick={() => {
                                         player?.nextTrack()
                                     }}>
                                     Next 
